@@ -1,6 +1,7 @@
 package com.example.smartstore.controller;
 
 import com.example.smartstore.dto.ProductRequest;
+import com.example.smartstore.dto.ProductUpdateRequest;
 import com.example.smartstore.dto.ProductResponse;
 import com.example.smartstore.service.ProductService;
 import jakarta.validation.Valid;
@@ -16,6 +17,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/products")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class ProductController {
 
@@ -43,6 +45,14 @@ public class ProductController {
     @PutMapping("/{id}")
     public ResponseEntity<ProductResponse> update(@PathVariable UUID id, @Valid @RequestBody ProductRequest request) {
         return ResponseEntity.ok(productService.updateProduct(id, request));
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<ProductResponse> partialUpdate(
+            @PathVariable UUID id,
+            @RequestBody ProductUpdateRequest request) {
+
+        return ResponseEntity.ok(productService.partialUpdateProduct(id, request));
     }
 
     @DeleteMapping("/{id}")

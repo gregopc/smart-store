@@ -2,17 +2,22 @@ package com.example.smartstore.service.impl;
 
 import com.example.smartstore.domain.Product;
 import com.example.smartstore.dto.ProductRequest;
+import com.example.smartstore.dto.ProductUpdateRequest;
 import com.example.smartstore.dto.ProductResponse;
 import com.example.smartstore.exception.EntityNotFoundException;
 import com.example.smartstore.mapper.ProductMapper;
 import com.example.smartstore.repository.ProductRepository;
 import com.example.smartstore.service.ProductService;
+import com.example.smartstore.exception.BusinessException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
+
+import java.util.function.Consumer;
+import java.math.BigDecimal;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
         }
 
         if (request.getStock() < 0) {
-            throw new IllegalArgumentException("Stock cannot be negative");
+            throw new BusinessException("Stock cannot be negative");
         }
     }
 
@@ -62,6 +67,44 @@ public class ProductServiceImpl implements ProductService {
         existing.setPrice(request.getPrice());
         existing.setCategory(request.getCategory());
         existing.setStock(request.getStock());
+
+        Product updated = repository.save(existing);
+        return mapper.toResponse(updated);
+    }
+
+    private <T> void updateIfPresent(T value, Consumer<T> setter) {
+        if (value != null) setter.accept(value);
+    }
+
+    private void merge(Product existing, ProductUpdateRequest request) {
+        updateIfPresent(request.getName(), existing::setName);
+        updateIfPresent(request.getDescription(), existing::setDescription);
+        updateIfPresent(request.getPrice(), existing::setPrice);
+        updateIfPresent(request.getCategory(), existing::setCategory);
+        updateIfPresent(request.getStock(), existing::setStock);
+    }
+
+    private void validateBusinessRulesPartial(ProductUpdateRequest request) {
+        if (request.getPrice() != null &&
+            request.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
+            throw new BusinessException("Price must be positive");
+        }
+
+        if (request.getStock() != null &&
+            request.getStock() < 0) {
+            throw new BusinessException("Stock cannot be negative");
+        }
+    }
+
+    @Override
+    public ProductResponse partialUpdateProduct(UUID id, ProductUpdateRequest request) {
+
+        Product existing = repository.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Product not found: " + id));
+
+        merge(existing, request);
+
+        validateBusinessRulesPartial(request);
 
         Product updated = repository.save(existing);
         return mapper.toResponse(updated);

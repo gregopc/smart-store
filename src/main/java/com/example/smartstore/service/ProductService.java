@@ -1,6 +1,7 @@
 package com.example.smartstore.service;
 
 import com.example.smartstore.dto.ProductRequest;
+import com.example.smartstore.dto.ProductUpdateRequest;
 import com.example.smartstore.dto.ProductResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,8 @@ public interface ProductService {
     ProductResponse getProductById(UUID id);
 
     ProductResponse updateProduct(UUID id, ProductRequest request);
+
+    ProductResponse partialUpdateProduct(UUID id, ProductUpdateRequest request);
 
     void deleteProduct(UUID id);
 }
