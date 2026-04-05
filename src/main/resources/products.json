@@ -1,0 +1,22 @@
+[
+  { "name": "Arroz Branco 1kg", "description": "Arroz branco tipo 1, ideal para refeições do dia a dia", "price": 6.50, "category": "grãos", "stock": 100 },
+  { "name": "Feijão Carioca 1kg", "description": "Feijão carioca para preparo de pratos tradicionais brasileiros", "price": 8.90, "category": "grãos", "stock": 80 },
+  { "name": "Macarrão Espaguete 500g", "description": "Macarrão de trigo ideal para massas com molho", "price": 4.50, "category": "massas", "stock": 120 },
+  { "name": "Molho de Tomate 340g", "description": "Molho pronto de tomate temperado", "price": 3.20, "category": "molhos", "stock": 90 },
+  { "name": "Peito de Frango 1kg", "description": "Peito de frango resfriado, rico em proteína", "price": 14.90, "category": "carnes", "stock": 60 },
+  { "name": "Carne Moída 1kg", "description": "Carne bovina moída fresca", "price": 18.50, "category": "carnes", "stock": 50 },
+  { "name": "Ovos (dúzia)", "description": "Ovos brancos, fonte de proteína", "price": 9.00, "category": "laticínios", "stock": 70 },
+  { "name": "Leite Integral 1L", "description": "Leite integral pasteurizado", "price": 5.50, "category": "laticínios", "stock": 90 },
+  { "name": "Queijo Mussarela 500g", "description": "Queijo fatiado ideal para sanduíches e receitas", "price": 17.00, "category": "laticínios", "stock": 40 },
+  { "name": "Alho 200g", "description": "Alho fresco para temperos", "price": 4.00, "category": "temperos", "stock": 110 },
+  { "name": "Cebola 1kg", "description": "Cebola branca para preparo de alimentos", "price": 5.00, "category": "hortifruti", "stock": 100 },
+  { "name": "Tomate 1kg", "description": "Tomate fresco para saladas e molhos", "price": 6.00, "category": "hortifruti", "stock": 95 },
+  { "name": "Batata 1kg", "description": "Batata inglesa para fritar, cozinhar ou assar", "price": 5.50, "category": "hortifruti", "stock": 85 },
+  { "name": "Óleo de Soja 900ml", "description": "Óleo vegetal para frituras e preparo de alimentos", "price": 7.50, "category": "óleos", "stock": 75 },
+  { "name": "Sal Refinado 1kg", "description": "Sal refinado iodado", "price": 2.50, "category": "temperos", "stock": 150 },
+  { "name": "Açúcar 1kg", "description": "Açúcar cristal para preparo de doces e bebidas", "price": 4.00, "category": "básicos", "stock": 130 },
+  { "name": "Farinha de Trigo 1kg", "description": "Farinha para bolos, pães e massas", "price": 5.00, "category": "básicos", "stock": 120 },
+  { "name": "Manteiga 200g", "description": "Manteiga com sal para cozinhar e passar no pão", "price": 8.50, "category": "laticínios", "stock": 60 },
+  { "name": "Pão de Forma", "description": "Pão macio ideal para sanduíches", "price": 7.00, "category": "padaria", "stock": 80 },
+  { "name": "Presunto 200g", "description": "Presunto fatiado para lanches", "price": 6.50, "category": "frios", "stock": 70 }
+]
