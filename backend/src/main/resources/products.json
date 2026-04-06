@@ -1,22 +1,51 @@
 [
-  { "name": "Arroz Branco 1kg", "description": "Arroz branco tipo 1, ideal para refeições do dia a dia", "price": 6.50, "category": "grãos", "stock": 100 },
-  { "name": "Feijão Carioca 1kg", "description": "Feijão carioca para preparo de pratos tradicionais brasileiros", "price": 8.90, "category": "grãos", "stock": 80 },
-  { "name": "Macarrão Espaguete 500g", "description": "Macarrão de trigo ideal para massas com molho", "price": 4.50, "category": "massas", "stock": 120 },
-  { "name": "Molho de Tomate 340g", "description": "Molho pronto de tomate temperado", "price": 3.20, "category": "molhos", "stock": 90 },
-  { "name": "Peito de Frango 1kg", "description": "Peito de frango resfriado, rico em proteína", "price": 14.90, "category": "carnes", "stock": 60 },
-  { "name": "Carne Moída 1kg", "description": "Carne bovina moída fresca", "price": 18.50, "category": "carnes", "stock": 50 },
-  { "name": "Ovos (dúzia)", "description": "Ovos brancos, fonte de proteína", "price": 9.00, "category": "laticínios", "stock": 70 },
-  { "name": "Leite Integral 1L", "description": "Leite integral pasteurizado", "price": 5.50, "category": "laticínios", "stock": 90 },
-  { "name": "Queijo Mussarela 500g", "description": "Queijo fatiado ideal para sanduíches e receitas", "price": 17.00, "category": "laticínios", "stock": 40 },
-  { "name": "Alho 200g", "description": "Alho fresco para temperos", "price": 4.00, "category": "temperos", "stock": 110 },
-  { "name": "Cebola 1kg", "description": "Cebola branca para preparo de alimentos", "price": 5.00, "category": "hortifruti", "stock": 100 },
-  { "name": "Tomate 1kg", "description": "Tomate fresco para saladas e molhos", "price": 6.00, "category": "hortifruti", "stock": 95 },
-  { "name": "Batata 1kg", "description": "Batata inglesa para fritar, cozinhar ou assar", "price": 5.50, "category": "hortifruti", "stock": 85 },
-  { "name": "Óleo de Soja 900ml", "description": "Óleo vegetal para frituras e preparo de alimentos", "price": 7.50, "category": "óleos", "stock": 75 },
-  { "name": "Sal Refinado 1kg", "description": "Sal refinado iodado", "price": 2.50, "category": "temperos", "stock": 150 },
-  { "name": "Açúcar 1kg", "description": "Açúcar cristal para preparo de doces e bebidas", "price": 4.00, "category": "básicos", "stock": 130 },
-  { "name": "Farinha de Trigo 1kg", "description": "Farinha para bolos, pães e massas", "price": 5.00, "category": "básicos", "stock": 120 },
-  { "name": "Manteiga 200g", "description": "Manteiga com sal para cozinhar e passar no pão", "price": 8.50, "category": "laticínios", "stock": 60 },
-  { "name": "Pão de Forma", "description": "Pão macio ideal para sanduíches", "price": 7.00, "category": "padaria", "stock": 80 },
-  { "name": "Presunto 200g", "description": "Presunto fatiado para lanches", "price": 6.50, "category": "frios", "stock": 70 }
+  { "name": "Arroz Branco Tipo 1 1kg", "description": "arroz branco de grão longo, textura leve e soltinha após cozimento, ideal para refeições do dia a dia, foco em versatilidade", "price": 6.50, "category": "grãos", "stock": 100 },
+
+  { "name": "Arroz Integral 1kg", "description": "arroz integral com maior teor de fibras, textura mais firme e sabor levemente amendoado, ideal para refeições saudáveis", "price": 7.50, "category": "grãos", "stock": 90 },
+
+  { "name": "Feijão Carioca 1kg", "description": "feijão carioca de caldo leve, sabor tradicional, ideal para pratos típicos brasileiros do dia a dia", "price": 8.90, "category": "grãos", "stock": 80 },
+
+  { "name": "Feijão Preto 1kg", "description": "feijão preto de caldo encorpado e sabor intenso, ideal para feijoada e receitas mais robustas", "price": 9.50, "category": "grãos", "stock": 70 },
+
+  { "name": "Macarrão Espaguete Tradicional 500g", "description": "massa de trigo longa, preparo rápido, ideal para receitas clássicas com molhos simples, foco em praticidade", "price": 4.50, "category": "massas", "stock": 120 },
+
+  { "name": "Macarrão Penne 500g", "description": "massa de trigo curta com formato tubular, melhor retenção de molhos, ideal para receitas mais elaboradas", "price": 5.20, "category": "massas", "stock": 100 },
+
+  { "name": "Molho de Tomate Tradicional 340g", "description": "molho de tomate suave, pronto para uso, ideal para receitas rápidas do dia a dia, foco em praticidade", "price": 3.20, "category": "molhos", "stock": 90 },
+
+  { "name": "Molho de Tomate com Manjericão 340g", "description": "molho de tomate aromático com ervas, sabor mais refinado, ideal para massas especiais e pratos com toque gourmet", "price": 4.20, "category": "molhos", "stock": 70 },
+
+  { "name": "Molho de Tomate Premium 340g", "description": "molho de tomate encorpado e sabor intenso, ideal para receitas elaboradas e pratos mais sofisticados", "price": 5.50, "category": "molhos", "stock": 60 },
+
+  { "name": "Peito de Frango Resfriado 1kg", "description": "carne de frango magra e rica em proteína, sabor suave, ideal para grelhados, dietas e refeições leves", "price": 14.90, "category": "carnes", "stock": 60 },
+
+  { "name": "Carne Moída Bovina 1kg", "description": "carne bovina moída fresca, sabor marcante, ideal para molhos, recheios e preparos versáteis", "price": 18.50, "category": "carnes", "stock": 50 },
+
+  { "name": "Ovos Brancos (dúzia)", "description": "ovos frescos ricos em proteína, extremamente versáteis, ideais para receitas doces e salgadas", "price": 9.00, "category": "laticínios", "stock": 70 },
+
+  { "name": "Leite Integral 1L", "description": "leite integral com sabor mais encorpado e textura cremosa, ideal para consumo direto e receitas", "price": 5.50, "category": "laticínios", "stock": 90 },
+
+  { "name": "Queijo Mussarela 500g", "description": "queijo de textura macia e sabor suave, excelente derretimento, ideal para sanduíches e receitas gratinadas", "price": 17.00, "category": "laticínios", "stock": 40 },
+
+  { "name": "Manteiga com Sal 200g", "description": "manteiga cremosa com leve teor de sal, sabor rico, ideal para cozinhar e finalizar pratos", "price": 8.50, "category": "laticínios", "stock": 60 },
+
+  { "name": "Alho Fresco 200g", "description": "alho de sabor intenso e marcante, essencial para temperos, refogados e base de receitas", "price": 4.00, "category": "temperos", "stock": 110 },
+
+  { "name": "Cebola Branca 1kg", "description": "cebola de sabor levemente adocicado após preparo, ideal para refogados, molhos e base de pratos", "price": 5.00, "category": "hortifruti", "stock": 100 },
+
+  { "name": "Tomate Fresco 1kg", "description": "tomate suculento e levemente ácido, ideal para saladas, molhos frescos e preparos naturais", "price": 6.00, "category": "hortifruti", "stock": 95 },
+
+  { "name": "Batata Inglesa 1kg", "description": "batata versátil de textura macia, ideal para fritar, cozinhar ou assar", "price": 5.50, "category": "hortifruti", "stock": 85 },
+
+  { "name": "Óleo de Soja 900ml", "description": "óleo vegetal neutro, alta resistência ao calor, ideal para frituras e preparo geral", "price": 7.50, "category": "óleos", "stock": 75 },
+
+  { "name": "Sal Refinado 1kg", "description": "sal iodado de granulação fina, essencial para temperar e realçar sabores", "price": 2.50, "category": "temperos", "stock": 150 },
+
+  { "name": "Açúcar Cristal 1kg", "description": "açúcar de cristais grandes, sabor doce neutro, ideal para bebidas e preparos diversos", "price": 4.00, "category": "básicos", "stock": 130 },
+
+  { "name": "Farinha de Trigo 1kg", "description": "farinha refinada de textura fina, ideal para pães, bolos e massas caseiras", "price": 5.00, "category": "básicos", "stock": 120 },
+
+  { "name": "Pão de Forma Tradicional", "description": "pão macio e leve, pronto para consumo, ideal para sanduíches e refeições rápidas", "price": 7.00, "category": "padaria", "stock": 80 },
+
+  { "name": "Presunto Fatiado 200g", "description": "presunto de sabor suave e textura macia, ideal para lanches e combinações rápidas", "price": 6.50, "category": "frios", "stock": 70 }
 ]
