@@ -88,12 +88,20 @@ http://localhost:8080/swagger-ui.html
 | PATCH | `/api/products/{id}` | Atualizar produto parcialmente |
 | DELETE | `/api/products/{id}` | Deletar produto |
 
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| POST | `/api/carts` | Criar novo carrinho |
+| GET | `/api/carts/{cartId}` | Obter detalhes do carrinho |
+| POST | `/api/carts/{cartId}/items` | Adicionar item ao carrinho |
+| DELETE | `/api/carts/{cartId}/items/{itemId}` | Remover item do carrinho |
+
 ---
 
 ## Funcionalidades Planejadas
 
 - [x] **Setup inicial do projeto com Spring**
 - [x] **CRUD de produtos**
+- [x] **Sistema de carrinho e checkout** (Implementação inicial)
 - [x] **Frontend simplificado**
 - [ ] **Chat conversacional com IA**: Integração com modelos de LLM para recomendações de produtos
 - [ ] **Sistema de carrinho e checkout**
