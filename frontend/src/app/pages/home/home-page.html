@@ -1,0 +1,14 @@
+<h1 class="text-3xl font-bold">
+  SmartStore
+</h1>
+
+<div>
+  <ul>
+    <!-- TODO: Refactor to card of products -->
+    @for (product of products(); track $index) {
+      <li>
+        {{ product.name }} - {{ product.price }}
+      </li>
+    }
+  </ul>
+</div>
