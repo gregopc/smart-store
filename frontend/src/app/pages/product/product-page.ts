@@ -1,6 +1,8 @@
-import { Component, WritableSignal, signal } from '@angular/core';
+import { Component, computed, inject, resource } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+
 import { ProductService } from '../../core/services/product.service';
-import { Product } from '../../core/models/product';
 
 @Component({
   selector: 'app-product-page',
@@ -9,12 +11,32 @@ import { Product } from '../../core/models/product';
   styleUrl: './product-page.css',
 })
 export class ProductPageComponent {
-  product: WritableSignal<Product | null> = signal(null);
+  private readonly productService: ProductService = inject(ProductService);
+  private readonly route: ActivatedRoute = inject(ActivatedRoute);
+  private readonly router: Router = inject(Router);
 
-  constructor(private readonly productService: ProductService) {}
+  private readonly paramMap = toSignal(this.route.paramMap);
 
-  async ngOnInit() {
-    const products = (await this.productService.getProducts()).content;
-    //this.products.set(products);
+  private readonly productId = computed(() => this.paramMap()?.get('id'));
+
+  private readonly productResource = resource({
+     params: () => this.productId(),
+     loader: async ({ params: id }) => {
+       if (!id) {
+         this.goBack();
+         return null;
+       }
+
+       return await this.productService.getProduct(id);
+     },
+   });
+
+  readonly product = computed(() => this.productResource.hasValue()
+    ? this.productResource.value()
+    : undefined
+  );
+
+  private goBack() {
+    this.router.navigate(['/']);
   }
 }

@@ -1,1 +1,8 @@
-<p>card works!</p>
+<div class="card">
+  <img [src]="imageUrl" [alt]="alt" class="card-image">
+  <div class="card-content">
+    <h3>{{ title }}</h3>
+    <p>{{ description }}</p>
+    <p class="price">R$ {{ price }}</p>
+  </div>
+</div>

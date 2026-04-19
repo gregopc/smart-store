@@ -1,10 +1,13 @@
 import { Component, WritableSignal, signal } from '@angular/core';
 import { ProductService } from '../../core/services/product.service';
 import { Product } from '../../core/models/product';
-
+import { Card } from '../../shared/components/card/card';
+import { HeaderComponent } from '../../shared/components/header/header.component';
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [
+    Card
+  ],
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
 })

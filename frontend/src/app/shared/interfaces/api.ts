@@ -1,4 +1,4 @@
-export interface ApiResponse<T> extends ApiResponseMetaData {
+export interface PaginatedApiResponse<T> extends ApiResponseMetaData {
   content: T
 }
 

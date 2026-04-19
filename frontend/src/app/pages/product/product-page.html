@@ -1,9 +1,11 @@
-<h1 class="text-3xl font-bold">
-  SmartStore
-</h1>
-
-<div>
-  <ul>
-    product()
-  </ul>
-</div>
+<!-- TODO: Implementar página de produto -->
+@if (product(); as p) {
+  <div>
+    <ul>
+      {{ p.name }}
+    </ul>
+  </div>
+} @else {
+<!-- TODO: Adicionar página de loading ou skeleton -->
+  <p>Loading...</p>
+}

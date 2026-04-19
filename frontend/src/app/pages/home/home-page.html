@@ -1,14 +1,19 @@
-<h1 class="text-3xl font-bold">
-  SmartStore
-</h1>
+<!-- Navigation -->
+<nav></nav>
 
-<div>
-  <ul>
-    <!-- TODO: Refactor to card of products -->
-    @for (product of products(); track $index) {
-      <li>
-        {{ product.name }} - {{ product.price }}
-      </li>
-    }
-  </ul>
+<!-- Main Content -->
+<main></main>
+
+<div class="cards">
+  <!-- TODO: Refactor to card of products -->
+  @for (product of products(); track $index) {
+    <app-card
+      [title]="product.name"
+      [description]="product.description"
+      [price]="product.price.toString()"
+    ></app-card>
+  }
 </div>
+
+<!-- Footer -->
+<footer></footer>
