@@ -99,13 +99,23 @@ http://localhost:8080/swagger-ui.html
 
 ## Funcionalidades Planejadas
 
+### SPRINT 1:
+
 - [x] **Setup inicial do projeto com Spring**
 - [x] **CRUD de produtos**
-- [x] **Sistema de carrinho e checkout** (Implementação inicial)
 - [x] **Frontend simplificado**
+
+### SPRINT 2:
+
+- [x] **Sistema de carrinho e checkout** (Implementação inicial)
 - [ ] **Chat conversacional com IA**: Integração com modelos de LLM para recomendações de produtos
-- [ ] **Sistema de carrinho e checkout**
+- [ ] **Sistema de carrinho e checkout** (Finalizado)
+- [ ] **Sistema de usuário**
 - [ ] **Autenticação e autorização**
+- [ ] **Motor de promoções inteligentes** (Implementação inicial)
+
+### SPRINT 3:
+
 - [ ] **Motor de promoções inteligentes**
 - [ ] **Sistema de cashback**
 - [ ] **Sistema de notificações**
