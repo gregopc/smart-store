@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChatComponent } from '../../shared/components/chat/chat.component';
+import { ChatWidgetComponent } from '../../shared/components/chat-widget/chat-widget.component';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { RouterOutlet } from '@angular/router';
@@ -8,7 +8,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-main-layout',
   imports: [
     RouterOutlet,
-    ChatComponent,
+    ChatWidgetComponent,
     HeaderComponent,
     FooterComponent
   ],

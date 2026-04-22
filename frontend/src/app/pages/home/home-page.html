@@ -1,11 +1,4 @@
-<!-- Navigation -->
-<nav></nav>
-
-<!-- Main Content -->
-<main></main>
-
 <div class="cards">
-  <!-- TODO: Refactor to card of products -->
   @for (product of products(); track $index) {
     <app-card
       [title]="product.name"
@@ -14,6 +7,3 @@
     ></app-card>
   }
 </div>
-
-<!-- Footer -->
-<footer></footer>
