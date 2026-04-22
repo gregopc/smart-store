@@ -3,6 +3,7 @@ package com.example.smartstore.service.impl;
 import com.example.smartstore.domain.Cart;
 import com.example.smartstore.domain.CartItem;
 import com.example.smartstore.domain.Product;
+import com.example.smartstore.domain.User;
 import com.example.smartstore.dto.AddItemRequest;
 import com.example.smartstore.dto.CartItemResponse;
 import com.example.smartstore.dto.CartResponse;
@@ -31,23 +32,26 @@ public class CartServiceImpl implements CartService {
 
     @Override
     @Transactional
-    public CartResponse createCart() {
-        Cart newCart = new Cart();
-        Cart savedCart = cartRepository.save(newCart);
-        return mapToCartResponse(savedCart);
+    public CartResponse createOrGetCart(User user) {
+        Cart cart = cartRepository.findByUser(user).orElseGet(() -> {
+            Cart newCart = new Cart();
+            newCart.setUser(user);
+            return cartRepository.save(newCart);
+        });
+        return mapToCartResponse(cart);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public CartResponse getCartById(UUID cartId) {
-        Cart cart = findCartById(cartId);
+    public CartResponse getCartByUser(User user) {
+        Cart cart = findCartByUser(user);
         return mapToCartResponse(cart);
     }
 
     @Override
     @Transactional
-    public CartResponse addItemToCart(UUID cartId, AddItemRequest request) {
-        Cart cart = findCartById(cartId);
+    public CartResponse addItemToCart(User user, AddItemRequest request) {
+        Cart cart = findCartByUser(user);
         Product product = productRepository.findById(request.getProductId())
                 .orElseThrow(() -> new EntityNotFoundException("Product not found: " + request.getProductId()));
 
@@ -55,7 +59,7 @@ public class CartServiceImpl implements CartService {
             throw new BusinessException("Quantity must be positive.");
         }
 
-        CartItem item = cartItemRepository.findByCartIdAndProductId(cartId, product.getId())
+        CartItem item = cartItemRepository.findByCartIdAndProductId(cart.getId(), product.getId())
                 .orElseGet(() -> {
                     CartItem newItem = new CartItem();
                     newItem.setCart(cart);
@@ -78,8 +82,8 @@ public class CartServiceImpl implements CartService {
 
     @Override
     @Transactional
-    public CartResponse removeItemFromCart(UUID cartId, UUID itemId) {
-        Cart cart = findCartById(cartId);
+    public CartResponse removeItemFromCart(User user, UUID itemId) {
+        Cart cart = findCartByUser(user);
         CartItem itemToRemove = cart.getItems().stream()
                 .filter(item -> item.getId().equals(itemId))
                 .findFirst()
@@ -93,12 +97,12 @@ public class CartServiceImpl implements CartService {
 
     @Override
     @Transactional
-    public CartResponse updateItemQuantity(UUID cartId, UUID itemId, Integer quantity) {
+    public CartResponse updateItemQuantity(User user, UUID itemId, Integer quantity) {
         if (quantity <= 0) {
-            return removeItemFromCart(cartId, itemId);
+            return removeItemFromCart(user, itemId);
         }
 
-        Cart cart = findCartById(cartId);
+        Cart cart = findCartByUser(user);
         CartItem itemToUpdate = cart.getItems().stream()
                 .filter(item -> item.getId().equals(itemId))
                 .findFirst()
@@ -114,9 +118,9 @@ public class CartServiceImpl implements CartService {
         return mapToCartResponse(cart);
     }
 
-    private Cart findCartById(UUID cartId) {
-        return cartRepository.findById(cartId)
-                .orElseThrow(() -> new EntityNotFoundException("Cart not found: " + cartId));
+    private Cart findCartByUser(User user) {
+        return cartRepository.findByUser(user)
+                .orElseThrow(() -> new EntityNotFoundException("Cart not found for this user"));
     }
 
     private CartResponse mapToCartResponse(Cart cart) {

@@ -1,6 +1,9 @@
 package com.example.smartstore.controller;
 
 import com.example.smartstore.domain.User;
+import com.example.smartstore.dto.AuthenticationDTO;
+import com.example.smartstore.dto.LoginResponseDTO;
+import com.example.smartstore.dto.RegisterDTO;
 import com.example.smartstore.repository.UserRepository;
 import com.example.smartstore.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,17 +13,15 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/auth")
 public class AuthController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private UserRepository repository;
+    private UserRepository userRepository;
 
     @Autowired
     private TokenService tokenService;
@@ -29,29 +30,27 @@ public class AuthController {
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/login")
-    public ResponseEntity<Map<String, String>> login(@RequestBody Map<String, String> data) {
-        var usernamePassword = new UsernamePasswordAuthenticationToken(data.get("email"), data.get("password"));
+    public ResponseEntity login(@RequestBody AuthenticationDTO data) {
+        var usernamePassword = new UsernamePasswordAuthenticationToken(data.email(), data.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
         var token = tokenService.generateToken((User) auth.getPrincipal());
 
-        return ResponseEntity.ok(Map.of("token", token));
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Void> register(@RequestBody Map<String, String> data) {
-        if (this.repository.findByEmail(data.get("email")) != null) {
-            return ResponseEntity.badRequest().build();
+    public ResponseEntity register(@RequestBody RegisterDTO data) {
+        if (this.userRepository.findByEmail(data.email()) != null) {
+            return ResponseEntity.badRequest().body("E-mail já está em uso.");
         }
 
-        String encryptedPassword = passwordEncoder.encode(data.get("password"));
-        User newUser = User.builder()
-                .email(data.get("email"))
-                .password(encryptedPassword)
-                .build();
-
-        this.repository.save(newUser);
-
+        String encryptedPassword = passwordEncoder.encode(data.password());
+        User newUser = new User();
+        newUser.setEmail(data.email());
+        newUser.setPassword(encryptedPassword);
+        
+        this.userRepository.save(newUser);
         return ResponseEntity.ok().build();
     }
 }

@@ -27,10 +27,10 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(req -> {
-                    req.requestMatchers(HttpMethod.POST, "/api/auth/**").permitAll();
+                    req.requestMatchers(HttpMethod.POST, "/auth/**").permitAll();
                     req.requestMatchers("/h2-console/**").permitAll();
                     req.requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll();
-                    req.requestMatchers(HttpMethod.GET, "/api/products/**").permitAll();
+                    req.requestMatchers(HttpMethod.GET, "/products/**").permitAll();
                     req.anyRequest().authenticated();
                 })
                 .headers(headers -> headers.frameOptions(frame -> frame.disable()))
