@@ -1,15 +1,18 @@
 package com.example.smartstore.ai;
 
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import java.util.List;
-import java.util.Map;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
@@ -25,25 +28,57 @@ public class GeminiClient implements AIClient {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
+    public String generateSuggestion(String prompt) {
+
+        String response = getModelResponse(prompt);
+
+        return response;
+    }
+
+    @Override
+    public List<String> extractProductNames(String prompt) {
+        String response = getModelResponse(prompt);
+        String text = extractTextFromResponse(response);
+
+        try {
+            JsonNode node = objectMapper.readTree(text.trim());
+            if (node.isArray()) {
+                List<String> names = new ArrayList<>();
+                node.forEach(n -> names.add(n.asText()));
+                return names;
+            }
+        } catch (Exception ignored) {}
+
+        return Arrays.stream(text.split("[,\n]"))
+            .map(String::trim)
+            .filter(s -> !s.isBlank())
+            .toList();
+    }
+
+    @Override
     public String generateReply(String prompt) {
 
-        Map<String, Object> request = Map.of(
-            "contents", List.of(
-                Map.of("parts", List.of(
-                    Map.of("text", prompt)
-                ))
-            )
-        );
-
-        String response = webClient.post()
-                .uri("/v1/models/" + model + ":generateContent")
-                .header("x-goog-api-key", apiKey)
-                .bodyValue(request)
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();
+        String response = getModelResponse(prompt);
 
         return extractTextFromResponse(response);
+    }
+
+    private String getModelResponse(String prompt) {
+        Map<String, Object> request = Map.of(
+                "contents", List.of(
+                    Map.of("parts", List.of(
+                        Map.of("text", prompt)
+                    ))
+                )
+            );
+
+        return webClient.post()
+            .uri("/v1/models/" + model + ":generateContent")
+            .header("x-goog-api-key", apiKey)
+            .bodyValue(request)
+            .retrieve()
+            .bodyToMono(String.class)
+            .block();
     }
 
     @Override

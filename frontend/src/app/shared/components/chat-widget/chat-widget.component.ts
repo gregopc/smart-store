@@ -45,7 +45,7 @@ export class ChatWidgetComponent implements AfterViewChecked {
     const text = this.inputText();
     if (!text.trim() || this.chatService.isLoading()) return;
     this.inputText.set('');
-    await this.chatService.sendMessage(text);
+    await this.chatService.getSuggestionFromMessage(text);
   }
 
   onKeydown(event: KeyboardEvent) {

@@ -1,4 +1,4 @@
-package com.example.smartstore.dto;
+package com.example.smartstore.dto.ai;
 
 import lombok.Data;
 
