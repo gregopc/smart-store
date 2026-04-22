@@ -1,18 +1,42 @@
 import { Routes } from '@angular/router';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./pages/home/home-page').then(m => m.HomePageComponent)
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: 'home',
+        loadComponent: () => import('./pages/home/home-page').then(m => m.HomePageComponent),
+      },
+      {
+        path: 'home/:id',
+        loadComponent: () => import('./pages/product/product-page').then(m => m.ProductPageComponent)
+      },
+      {
+        path: 'cart',
+        loadComponent: () => import('./pages/cart/cart-page').then(m => m.CartPageComponent)
+      },
+      { path: '', redirectTo: 'home', pathMatch: 'full' }
+    ]
   },
-  {
-    path: 'cart',
-    loadComponent: () => import('./pages/cart/cart-page').then(m => m.CartPageComponent)
-  },
-  {
-    path: ':id',
-    loadComponent: () => import('./pages/product/product-page').then(m => m.ProductPageComponent)
-  },
+
+  // TODO: create CheckoutPageComponent
+  // {
+  //   path: '/checkout',
+  //   loadComponent: () => import('./pages/checkout/checkout-page').then(m => m.CheckoutPageComponent)
+  // },
+  // TODO: create LoginPageComponent
+  // {
+  //   path: '/login',
+  //   loadComponent: () => import('./pages/login/login-page').then(m => m.LoginPageComponent)
+  // },
+  // TODO: create RegisterPageComponent
+  // {
+  //   path: '/register',
+  //   loadComponent: () => import('./pages/register/register-page').then(m => m.RegisterPageComponent)
+  // },
   // TODO: create PageNotFoundComponent
   // {
   //   path: '**',
