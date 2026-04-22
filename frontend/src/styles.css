@@ -1,15 +1,48 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 * ::selection {
     background-color: #fff5b674;
 
 }
 
+:root {
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --accent: #6366f1;
+  --bg: #0b0d14;
+  --surface: #12151f;
+  --surface-2: #1a1e2d;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f0f2ff;
+  --text-muted: #8892b0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
 body {
-    min-height: 100vh;
-    background-color: #000a05;
+  height: 100%;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
 }

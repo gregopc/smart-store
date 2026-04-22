@@ -10,7 +10,7 @@ export interface Message {
 
 @Injectable({ providedIn: 'root' })
 export class ChatService {
-  private readonly API_URL = `${environment.apiUrl}/products`;
+  private readonly API_URL = `${environment.apiUrl}/`;
 
   messages = signal<Message[]>([]);
   isLoading = signal(false);
