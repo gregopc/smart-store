@@ -1,51 +1,227 @@
 [
-  { "name": "Arroz Branco Tipo 1 1kg", "description": "arroz branco de grão longo, textura leve e soltinha após cozimento, ideal para refeições do dia a dia, foco em versatilidade", "price": 6.50, "category": "grãos", "stock": 100 },
+  { 
+    "name": "Arroz Branco Tipo 1 1kg", 
+    "description": "arroz branco de grão longo, textura leve e soltinha após cozimento, ideal para refeições do dia a dia, foco em versatilidade", 
+    "price": 6.50, 
+    "category": "grãos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/fb66ac4f-e3d4-4e0d-b950-8c808f5fa2d8.jpg", 
+    "stock": 100
+  },
 
-  { "name": "Arroz Integral 1kg", "description": "arroz integral com maior teor de fibras, textura mais firme e sabor levemente amendoado, ideal para refeições saudáveis", "price": 7.50, "category": "grãos", "stock": 90 },
+  { 
+    "name": "Arroz Integral 1kg", 
+    "description": "arroz integral com maior teor de fibras, textura mais firme e sabor levemente amendoado, ideal para refeições saudáveis", 
+    "price": 7.50, 
+    "category": "grãos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/be87935f-c0b2-11e7-a6aa-063e6e4e9f3a.jpg", 
+    "stock": 90 
+  },
 
-  { "name": "Feijão Carioca 1kg", "description": "feijão carioca de caldo leve, sabor tradicional, ideal para pratos típicos brasileiros do dia a dia", "price": 8.90, "category": "grãos", "stock": 80 },
+  { 
+    "name": "Feijão Carioca 1kg", 
+    "description": "feijão carioca de caldo leve, sabor tradicional, ideal para pratos típicos brasileiros do dia a dia", 
+    "price": 8.90, 
+    "category": "grãos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/b30afc68-c0b8-11e7-a6aa-063e6e4e9f3a.jpg", 
+    "stock": 80 
+  },
 
-  { "name": "Feijão Preto 1kg", "description": "feijão preto de caldo encorpado e sabor intenso, ideal para feijoada e receitas mais robustas", "price": 9.50, "category": "grãos", "stock": 70 },
+  { 
+    "name": "Feijão Preto 1kg", 
+    "description": "feijão preto de caldo encorpado e sabor intenso, ideal para feijoada e receitas mais robustas", 
+    "price": 9.50, 
+    "category": "grãos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/b0881836-849d-403e-b101-05a382f3f8ed.jpg", 
+    "stock": 70 
+  },
 
-  { "name": "Macarrão Espaguete Tradicional 500g", "description": "massa de trigo longa, preparo rápido, ideal para receitas clássicas com molhos simples, foco em praticidade", "price": 4.50, "category": "massas", "stock": 120 },
+  { 
+    "name": "Macarrão Espaguete Tradicional 500g", 
+    "description": "massa de trigo longa, preparo rápido, ideal para receitas clássicas com molhos simples, foco em praticidade", 
+    "price": 4.50, 
+    "category": "massas", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/7c1fda41-2d69-40b4-853d-c74d4c9038d3.jpg", 
+    "stock": 120 
+  },
 
-  { "name": "Macarrão Penne 500g", "description": "massa de trigo curta com formato tubular, melhor retenção de molhos, ideal para receitas mais elaboradas", "price": 5.20, "category": "massas", "stock": 100 },
+  { 
+    "name": "Macarrão Penne 500g", 
+    "description": "massa de trigo curta com formato tubular, melhor retenção de molhos, ideal para receitas mais elaboradas", 
+    "price": 5.20, 
+    "category": "massas", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/aeaa8bd3-1aa2-4b28-ad02-ca6dfeb4e9fa.jpg", 
+    "stock": 100 
+  },
 
-  { "name": "Molho de Tomate Tradicional 340g", "description": "molho de tomate suave, pronto para uso, ideal para receitas rápidas do dia a dia, foco em praticidade", "price": 3.20, "category": "molhos", "stock": 90 },
+  { 
+    "name": "Molho de Tomate Tradicional 300g", 
+    "description": "molho de tomate suave, pronto para uso, ideal para receitas rápidas do dia a dia, foco em praticidade", 
+    "price": 3.20, 
+    "category": "molhos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/adc1fe29-4013-4184-ae6d-43d213c77120.jpg", 
+    "stock": 90 
+  },
 
-  { "name": "Molho de Tomate com Manjericão 340g", "description": "molho de tomate aromático com ervas, sabor mais refinado, ideal para massas especiais e pratos com toque gourmet", "price": 4.20, "category": "molhos", "stock": 70 },
+  { 
+    "name": "Molho de Tomate com Manjericão 300g", 
+    "description": "molho de tomate aromático com ervas, sabor mais refinado, ideal para massas especiais e pratos com toque gourmet", 
+    "price": 4.20, 
+    "category": "molhos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/c0dca662-64ba-4660-ba5d-33bf289d452b.jpg", 
+    "stock": 70 
+  },
 
-  { "name": "Molho de Tomate Premium 340g", "description": "molho de tomate encorpado e sabor intenso, ideal para receitas elaboradas e pratos mais sofisticados", "price": 5.50, "category": "molhos", "stock": 60 },
+  { 
+    "name": "Molho de Tomate Premium 340g", 
+    "description": "molho de tomate encorpado e sabor intenso, ideal para receitas elaboradas e pratos mais sofisticados", 
+    "price": 25.99, 
+    "category": "molhos", 
+    "imageUrl":"https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/8baf6f97-3f6f-4e03-9435-71df19023d09.jpg", 
+    "stock": 60 
 
-  { "name": "Peito de Frango Resfriado 1kg", "description": "carne de frango magra e rica em proteína, sabor suave, ideal para grelhados, dietas e refeições leves", "price": 14.90, "category": "carnes", "stock": 60 },
+  },
 
-  { "name": "Carne Moída Bovina 1kg", "description": "carne bovina moída fresca, sabor marcante, ideal para molhos, recheios e preparos versáteis", "price": 18.50, "category": "carnes", "stock": 50 },
+  { 
+    "name": "File Peito Frango Bandeja Sadia 1kg", 
+   "description": "carne de frango magra e rica em proteína, sabor suave, ideal para grelhados, dietas e refeições leves", 
+   "price": 25.49,
+   "category":"carnes", 
+   "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/7945d556-6732-4d81-9a64-b5eb61fd2358.jpg",
+   "stock": 60
+  },
 
-  { "name": "Ovos Brancos (dúzia)", "description": "ovos frescos ricos em proteína, extremamente versáteis, ideais para receitas doces e salgadas", "price": 9.00, "category": "laticínios", "stock": 70 },
+  { 
+    "name": "Carne Moída Bovina Congelada Friboi 500g", 
+    "description": "carne bovina moída fresca, sabor marcante, ideal para molhos, recheios e preparos versáteis", 
+    "price": 15.79, 
+    "category": "carnes", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/ae83fa38-05fc-4dd9-a44c-1c2df9f0daba.jpg",
+    "stock": 50 
+  },
 
-  { "name": "Leite Integral 1L", "description": "leite integral com sabor mais encorpado e textura cremosa, ideal para consumo direto e receitas", "price": 5.50, "category": "laticínios", "stock": 90 },
+  { 
+    "name": "Ovos Branco Avine Extra Bd C/12", 
+    "description": "ovos frescos ricos em proteína, extremamente versáteis, ideais para receitas doces e salgadas", 
+    "price": 9.98, 
+    "category": "ovos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/d4110e1b-fb1d-40a1-a867-70bebdcc9b47.jpg",
+    "stock": 70 
+  },
 
-  { "name": "Queijo Mussarela 500g", "description": "queijo de textura macia e sabor suave, excelente derretimento, ideal para sanduíches e receitas gratinadas", "price": 17.00, "category": "laticínios", "stock": 40 },
+  { 
+    "name": "Leite Uht Integral Betânia 1l", 
+    "description": "leite integral com sabor mais encorpado e textura cremosa, ideal para consumo direto e receitas", 
+    "price": 6.39, 
+    "category": "laticínios", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/3b03d930-986a-4404-af2f-b77cc2015cc7.jpg",
+    "stock": 90 
+  },
 
-  { "name": "Manteiga com Sal 200g", "description": "manteiga cremosa com leve teor de sal, sabor rico, ideal para cozinhar e finalizar pratos", "price": 8.50, "category": "laticínios", "stock": 60 },
+  { 
+    "name": "Queijo Mini Mussarela Light Jucurutu 500g", 
+    "description": "queijo de textura macia e sabor suave, excelente derretimento, ideal para sanduíches e receitas gratinadas", 
+    "price": 32.50, 
+    "category": "laticínios", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/ad69cdb4-a699-4495-9a33-45599cc88752.jpg",
+    "stock": 40 
+  },
 
-  { "name": "Alho Fresco 200g", "description": "alho de sabor intenso e marcante, essencial para temperos, refogados e base de receitas", "price": 4.00, "category": "temperos", "stock": 110 },
+  { 
+    "name": "Manteiga com Sal 200g", 
+    "description": "manteiga cremosa com leve teor de sal, sabor rico, ideal para cozinhar e finalizar pratos", 
+    "price": 8.50, 
+    "category": "laticínios", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/befd9d71-ade4-4022-ab71-2077122056cd.jpg",
+    "stock": 60 
+  },
 
-  { "name": "Cebola Branca 1kg", "description": "cebola de sabor levemente adocicado após preparo, ideal para refogados, molhos e base de pratos", "price": 5.00, "category": "hortifruti", "stock": 100 },
+  { 
+    "name": "Alho Fresco 200g", 
+    "description": "alho de sabor intenso e marcante, essencial para temperos, refogados e base de receitas", 
+    "price": 4.00, 
+    "category": "temperos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/edfa7bf4-ff5f-4baa-b8e0-56c2d4610392.jpg",
+    "stock": 110 
+  },
 
-  { "name": "Tomate Fresco 1kg", "description": "tomate suculento e levemente ácido, ideal para saladas, molhos frescos e preparos naturais", "price": 6.00, "category": "hortifruti", "stock": 95 },
+  { 
+    "name": "Cebola Branca 1kg", 
+    "description": "cebola de sabor levemente adocicado após preparo, ideal para refogados, molhos e base de pratos", 
+    "price": 5.00, 
+    "category": "hortifruti", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/3ad596c9-967d-4f18-b877-a8fbd735b04f.jpg",
+    "stock": 100 
+  },
 
-  { "name": "Batata Inglesa 1kg", "description": "batata versátil de textura macia, ideal para fritar, cozinhar ou assar", "price": 5.50, "category": "hortifruti", "stock": 85 },
+  { 
+    "name": "Tomate Fresco 1kg", 
+    "description": "tomate suculento e levemente ácido, ideal para saladas, molhos frescos e preparos naturais", 
+    "price": 6.00, 
+    "category": "hortifruti", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/f949f782-7654-45a6-a48e-67e1f68d4b66.jpg",
+    "stock": 95 
+  },
 
-  { "name": "Óleo de Soja 900ml", "description": "óleo vegetal neutro, alta resistência ao calor, ideal para frituras e preparo geral", "price": 7.50, "category": "óleos", "stock": 75 },
+  { 
+    "name": "Batata Inglesa 1kg", 
+    "description": "batata versátil de textura macia, ideal para fritar, cozinhar ou assar", 
+    "price": 5.50, 
+    "category": "hortifruti", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/0c8b89f3-8328-4f9c-908b-f8d9c37c2fce.jpg",
+    "stock": 85 
+  },
 
-  { "name": "Sal Refinado 1kg", "description": "sal iodado de granulação fina, essencial para temperar e realçar sabores", "price": 2.50, "category": "temperos", "stock": 150 },
+  { 
+    "name": "Óleo de Soja 900ml", 
+    "description": "óleo vegetal neutro, alta resistência ao calor, ideal para frituras e preparo geral", 
+    "price": 7.50, 
+    "category": "óleos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2c058cb5-2ad3-4cc2-b717-f297b874e01e.jpg",
+    "stock": 75 
+  },
 
-  { "name": "Açúcar Cristal 1kg", "description": "açúcar de cristais grandes, sabor doce neutro, ideal para bebidas e preparos diversos", "price": 4.00, "category": "básicos", "stock": 130 },
+  { 
+    "name": "Sal Refinado 1kg", 
+    "description": "sal iodado de granulação fina, essencial para temperar e realçar sabores", 
+    "price": 2.50, 
+    "category": "temperos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/4205b4cd-c0b4-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 150 
+  },
 
-  { "name": "Farinha de Trigo 1kg", "description": "farinha refinada de textura fina, ideal para pães, bolos e massas caseiras", "price": 5.00, "category": "básicos", "stock": 120 },
+  { 
+    "name": "Açúcar Cristal 1kg", 
+    "description": "açúcar de cristais grandes, sabor doce neutro, ideal para bebidas e preparos diversos", 
+    "price": 4.00, 
+    "category": "básicos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/914b4e7e-df5f-4eed-bfdd-c816d53e2f3c.jpg",
+    "stock": 130 
+  },
 
-  { "name": "Pão de Forma Tradicional", "description": "pão macio e leve, pronto para consumo, ideal para sanduíches e refeições rápidas", "price": 7.00, "category": "padaria", "stock": 80 },
+  { 
+    "name": "Farinha de Trigo 1kg", 
+    "description": "farinha refinada de textura fina, ideal para pães, bolos e massas caseiras", 
+    "price": 5.00, 
+    "category": "básicos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/e169e3ed-d185-44a1-9c83-0a64fca6a79b.jpg",
+    "stock": 120 
+  },
 
-  { "name": "Presunto Fatiado 200g", "description": "presunto de sabor suave e textura macia, ideal para lanches e combinações rápidas", "price": 6.50, "category": "frios", "stock": 70 }
+  { 
+    "name": "Pão de Forma Tradicional 400g", 
+    "description": "pão macio e leve, pronto para consumo, ideal para sanduíches e refeições rápidas", 
+    "price": 7.00, 
+    "category": "padaria", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2ba769ad-0e79-48d0-b7cd-73011fd2c6cb.jpg",
+    "stock": 80 
+  },
+
+  { 
+    "name": "Presunto Fatiado 200g", 
+    "description": "presunto de sabor suave e textura macia, ideal para lanches e combinações rápidas", 
+    "price": 6.50, 
+    "category": "frios", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/989e60fb-f600-4430-82c4-5245cd2ddadb.jpg",
+    "stock": 70 
+  }
 ]

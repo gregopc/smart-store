@@ -1,1 +1,20 @@
-.DS_Store
+# Ignore Copilot guidelines and run instructions
+COPILOT_GUIDELINES.md
+copilot_guidelines.md
+
+# Ignore run instructions
+RUN.md
+run.md
+
+# Common ignores
+/target/
+.idea/
+.classpath
+.project
+.settings/
+.vscode/
+
+# H2 database files
+/data/
+
+.gitignore

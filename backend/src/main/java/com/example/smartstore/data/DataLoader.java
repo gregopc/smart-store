@@ -24,7 +24,9 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        if (repository.count() > 0) return;
+        repository.deleteAll();
+
+        // if (repository.count() > 0) return;
 
         InputStream inputStream = getClass()
         .getResourceAsStream("/products.json");
@@ -36,6 +38,12 @@ public class DataLoader implements CommandLineRunner {
         List<Product> products = Arrays.asList(
                 objectMapper.readValue(inputStream, Product[].class)
         );
+
+        products.forEach(p -> {
+            if (p.getStock() == null) {
+                System.out.println("Produto sem stock: " + p.getName());
+            }
+        });
 
         repository.saveAll(products);
     }
