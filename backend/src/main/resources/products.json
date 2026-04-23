@@ -1,51 +1,867 @@
 [
-  { "name": "Arroz Branco Tipo 1 1kg", "description": "arroz branco de grão longo, textura leve e soltinha após cozimento, ideal para refeições do dia a dia, foco em versatilidade", "price": 6.50, "category": "grãos", "stock": 100 },
+  { 
+    "name": "Arroz Branco Tipo 1 1kg", 
+    "description": "arroz branco de grão longo, textura leve e soltinha após cozimento, ideal para refeições do dia a dia, foco em versatilidade", 
+    "price": 6.50, 
+    "category": "grãos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/fb66ac4f-e3d4-4e0d-b950-8c808f5fa2d8.jpg", 
+    "stock": 100
+  },
 
-  { "name": "Arroz Integral 1kg", "description": "arroz integral com maior teor de fibras, textura mais firme e sabor levemente amendoado, ideal para refeições saudáveis", "price": 7.50, "category": "grãos", "stock": 90 },
+  { 
+    "name": "Arroz Integral 1kg", 
+    "description": "arroz integral com maior teor de fibras, textura mais firme e sabor levemente amendoado, ideal para refeições saudáveis", 
+    "price": 7.50, 
+    "category": "grãos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/be87935f-c0b2-11e7-a6aa-063e6e4e9f3a.jpg", 
+    "stock": 90 
+  },
 
-  { "name": "Feijão Carioca 1kg", "description": "feijão carioca de caldo leve, sabor tradicional, ideal para pratos típicos brasileiros do dia a dia", "price": 8.90, "category": "grãos", "stock": 80 },
+  { 
+    "name": "Feijão Carioca 1kg", 
+    "description": "feijão carioca de caldo leve, sabor tradicional, ideal para pratos típicos brasileiros do dia a dia", 
+    "price": 8.90, 
+    "category": "grãos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/b30afc68-c0b8-11e7-a6aa-063e6e4e9f3a.jpg", 
+    "stock": 80 
+  },
 
-  { "name": "Feijão Preto 1kg", "description": "feijão preto de caldo encorpado e sabor intenso, ideal para feijoada e receitas mais robustas", "price": 9.50, "category": "grãos", "stock": 70 },
+  { 
+    "name": "Feijão Preto 1kg", 
+    "description": "feijão preto de caldo encorpado e sabor intenso, ideal para feijoada e receitas mais robustas", 
+    "price": 9.50, 
+    "category": "grãos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/b0881836-849d-403e-b101-05a382f3f8ed.jpg", 
+    "stock": 70 
+  },
 
-  { "name": "Macarrão Espaguete Tradicional 500g", "description": "massa de trigo longa, preparo rápido, ideal para receitas clássicas com molhos simples, foco em praticidade", "price": 4.50, "category": "massas", "stock": 120 },
+  { 
+    "name": "Macarrão Espaguete Tradicional 500g", 
+    "description": "massa de trigo longa, preparo rápido, ideal para receitas clássicas com molhos simples, foco em praticidade", 
+    "price": 4.50, 
+    "category": "massas", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/7c1fda41-2d69-40b4-853d-c74d4c9038d3.jpg", 
+    "stock": 120 
+  },
 
-  { "name": "Macarrão Penne 500g", "description": "massa de trigo curta com formato tubular, melhor retenção de molhos, ideal para receitas mais elaboradas", "price": 5.20, "category": "massas", "stock": 100 },
+  { 
+    "name": "Macarrão Penne 500g", 
+    "description": "massa de trigo curta com formato tubular, melhor retenção de molhos, ideal para receitas mais elaboradas", 
+    "price": 5.20, 
+    "category": "massas", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/aeaa8bd3-1aa2-4b28-ad02-ca6dfeb4e9fa.jpg", 
+    "stock": 100 
+  },
 
-  { "name": "Molho de Tomate Tradicional 340g", "description": "molho de tomate suave, pronto para uso, ideal para receitas rápidas do dia a dia, foco em praticidade", "price": 3.20, "category": "molhos", "stock": 90 },
+  { 
+    "name": "Molho de Tomate Tradicional 300g", 
+    "description": "molho de tomate suave, pronto para uso, ideal para receitas rápidas do dia a dia, foco em praticidade", 
+    "price": 3.20, 
+    "category": "molhos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/adc1fe29-4013-4184-ae6d-43d213c77120.jpg", 
+    "stock": 90 
+  },
 
-  { "name": "Molho de Tomate com Manjericão 340g", "description": "molho de tomate aromático com ervas, sabor mais refinado, ideal para massas especiais e pratos com toque gourmet", "price": 4.20, "category": "molhos", "stock": 70 },
+  { 
+    "name": "Molho de Tomate com Manjericão 300g", 
+    "description": "molho de tomate aromático com ervas, sabor mais refinado, ideal para massas especiais e pratos com toque gourmet", 
+    "price": 4.20, 
+    "category": "molhos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/c0dca662-64ba-4660-ba5d-33bf289d452b.jpg", 
+    "stock": 70 
+  },
 
-  { "name": "Molho de Tomate Premium 340g", "description": "molho de tomate encorpado e sabor intenso, ideal para receitas elaboradas e pratos mais sofisticados", "price": 5.50, "category": "molhos", "stock": 60 },
+  { 
+    "name": "Molho de Tomate Premium 340g", 
+    "description": "molho de tomate encorpado e sabor intenso, ideal para receitas elaboradas e pratos mais sofisticados", 
+    "price": 25.99, 
+    "category": "molhos", 
+    "imageUrl":"https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/8baf6f97-3f6f-4e03-9435-71df19023d09.jpg", 
+    "stock": 60 
 
-  { "name": "Peito de Frango Resfriado 1kg", "description": "carne de frango magra e rica em proteína, sabor suave, ideal para grelhados, dietas e refeições leves", "price": 14.90, "category": "carnes", "stock": 60 },
+  },
 
-  { "name": "Carne Moída Bovina 1kg", "description": "carne bovina moída fresca, sabor marcante, ideal para molhos, recheios e preparos versáteis", "price": 18.50, "category": "carnes", "stock": 50 },
+  { 
+    "name": "File Peito Frango Bandeja Sadia 1kg", 
+   "description": "carne de frango magra e rica em proteína, sabor suave, ideal para grelhados, dietas e refeições leves", 
+   "price": 25.49,
+   "category":"carnes", 
+   "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/7945d556-6732-4d81-9a64-b5eb61fd2358.jpg",
+   "stock": 60
+  },
 
-  { "name": "Ovos Brancos (dúzia)", "description": "ovos frescos ricos em proteína, extremamente versáteis, ideais para receitas doces e salgadas", "price": 9.00, "category": "laticínios", "stock": 70 },
+  { 
+    "name": "Carne Moída Bovina Congelada Friboi 500g", 
+    "description": "carne bovina moída fresca, sabor marcante, ideal para molhos, recheios e preparos versáteis", 
+    "price": 15.79, 
+    "category": "carnes", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/ae83fa38-05fc-4dd9-a44c-1c2df9f0daba.jpg",
+    "stock": 50 
+  },
 
-  { "name": "Leite Integral 1L", "description": "leite integral com sabor mais encorpado e textura cremosa, ideal para consumo direto e receitas", "price": 5.50, "category": "laticínios", "stock": 90 },
+  { 
+    "name": "Ovos Branco Avine Extra Bd C/12", 
+    "description": "ovos frescos ricos em proteína, extremamente versáteis, ideais para receitas doces e salgadas", 
+    "price": 9.98, 
+    "category": "ovos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/d4110e1b-fb1d-40a1-a867-70bebdcc9b47.jpg",
+    "stock": 70 
+  },
 
-  { "name": "Queijo Mussarela 500g", "description": "queijo de textura macia e sabor suave, excelente derretimento, ideal para sanduíches e receitas gratinadas", "price": 17.00, "category": "laticínios", "stock": 40 },
+  { 
+    "name": "Leite Uht Integral Betânia 1l", 
+    "description": "leite integral com sabor mais encorpado e textura cremosa, ideal para consumo direto e receitas", 
+    "price": 6.39, 
+    "category": "laticínios", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/3b03d930-986a-4404-af2f-b77cc2015cc7.jpg",
+    "stock": 90 
+  },
 
-  { "name": "Manteiga com Sal 200g", "description": "manteiga cremosa com leve teor de sal, sabor rico, ideal para cozinhar e finalizar pratos", "price": 8.50, "category": "laticínios", "stock": 60 },
+  { 
+    "name": "Queijo Mini Mussarela Light Jucurutu 500g", 
+    "description": "queijo de textura macia e sabor suave, excelente derretimento, ideal para sanduíches e receitas gratinadas", 
+    "price": 32.50, 
+    "category": "laticínios", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/ad69cdb4-a699-4495-9a33-45599cc88752.jpg",
+    "stock": 40 
+  },
 
-  { "name": "Alho Fresco 200g", "description": "alho de sabor intenso e marcante, essencial para temperos, refogados e base de receitas", "price": 4.00, "category": "temperos", "stock": 110 },
+  { 
+    "name": "Manteiga com Sal 200g", 
+    "description": "manteiga cremosa com leve teor de sal, sabor rico, ideal para cozinhar e finalizar pratos", 
+    "price": 8.50, 
+    "category": "laticínios", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/befd9d71-ade4-4022-ab71-2077122056cd.jpg",
+    "stock": 60 
+  },
 
-  { "name": "Cebola Branca 1kg", "description": "cebola de sabor levemente adocicado após preparo, ideal para refogados, molhos e base de pratos", "price": 5.00, "category": "hortifruti", "stock": 100 },
+  { 
+    "name": "Alho Fresco 200g", 
+    "description": "alho de sabor intenso e marcante, essencial para temperos, refogados e base de receitas", 
+    "price": 4.00, 
+    "category": "temperos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/edfa7bf4-ff5f-4baa-b8e0-56c2d4610392.jpg",
+    "stock": 110 
+  },
 
-  { "name": "Tomate Fresco 1kg", "description": "tomate suculento e levemente ácido, ideal para saladas, molhos frescos e preparos naturais", "price": 6.00, "category": "hortifruti", "stock": 95 },
+  { 
+    "name": "Cebola Branca 1kg", 
+    "description": "cebola de sabor levemente adocicado após preparo, ideal para refogados, molhos e base de pratos", 
+    "price": 5.00, 
+    "category": "hortifruti", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/3ad596c9-967d-4f18-b877-a8fbd735b04f.jpg",
+    "stock": 100 
+  },
 
-  { "name": "Batata Inglesa 1kg", "description": "batata versátil de textura macia, ideal para fritar, cozinhar ou assar", "price": 5.50, "category": "hortifruti", "stock": 85 },
+  { 
+    "name": "Tomate Fresco 1kg", 
+    "description": "tomate suculento e levemente ácido, ideal para saladas, molhos frescos e preparos naturais", 
+    "price": 6.00, 
+    "category": "hortifruti", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/f949f782-7654-45a6-a48e-67e1f68d4b66.jpg",
+    "stock": 95 
+  },
 
-  { "name": "Óleo de Soja 900ml", "description": "óleo vegetal neutro, alta resistência ao calor, ideal para frituras e preparo geral", "price": 7.50, "category": "óleos", "stock": 75 },
+  { 
+    "name": "Batata Inglesa 1kg", 
+    "description": "batata versátil de textura macia, ideal para fritar, cozinhar ou assar", 
+    "price": 5.50, 
+    "category": "hortifruti", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/0c8b89f3-8328-4f9c-908b-f8d9c37c2fce.jpg",
+    "stock": 85 
+  },
 
-  { "name": "Sal Refinado 1kg", "description": "sal iodado de granulação fina, essencial para temperar e realçar sabores", "price": 2.50, "category": "temperos", "stock": 150 },
+  { 
+    "name": "Óleo de Soja 900ml", 
+    "description": "óleo vegetal neutro, alta resistência ao calor, ideal para frituras e preparo geral", 
+    "price": 7.50, 
+    "category": "óleos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2c058cb5-2ad3-4cc2-b717-f297b874e01e.jpg",
+    "stock": 75 
+  },
 
-  { "name": "Açúcar Cristal 1kg", "description": "açúcar de cristais grandes, sabor doce neutro, ideal para bebidas e preparos diversos", "price": 4.00, "category": "básicos", "stock": 130 },
+  { 
+    "name": "Sal Refinado 1kg", 
+    "description": "sal iodado de granulação fina, essencial para temperar e realçar sabores", 
+    "price": 2.50, 
+    "category": "temperos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/4205b4cd-c0b4-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 150 
+  },
 
-  { "name": "Farinha de Trigo 1kg", "description": "farinha refinada de textura fina, ideal para pães, bolos e massas caseiras", "price": 5.00, "category": "básicos", "stock": 120 },
+  { 
+    "name": "Açúcar Cristal 1kg", 
+    "description": "açúcar de cristais grandes, sabor doce neutro, ideal para bebidas e preparos diversos", 
+    "price": 4.00, 
+    "category": "básicos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/914b4e7e-df5f-4eed-bfdd-c816d53e2f3c.jpg",
+    "stock": 130 
+  },
 
-  { "name": "Pão de Forma Tradicional", "description": "pão macio e leve, pronto para consumo, ideal para sanduíches e refeições rápidas", "price": 7.00, "category": "padaria", "stock": 80 },
+  { 
+    "name": "Farinha de Trigo 1kg", 
+    "description": "farinha refinada de textura fina, ideal para pães, bolos e massas caseiras", 
+    "price": 5.00, 
+    "category": "básicos", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/e169e3ed-d185-44a1-9c83-0a64fca6a79b.jpg",
+    "stock": 120 
+  },
 
-  { "name": "Presunto Fatiado 200g", "description": "presunto de sabor suave e textura macia, ideal para lanches e combinações rápidas", "price": 6.50, "category": "frios", "stock": 70 }
+  { 
+    "name": "Pão de Forma Tradicional 400g", 
+    "description": "pão macio e leve, pronto para consumo, ideal para sanduíches e refeições rápidas", 
+    "price": 7.00, 
+    "category": "padaria", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2ba769ad-0e79-48d0-b7cd-73011fd2c6cb.jpg",
+    "stock": 80 
+  },
+
+  { 
+    "name": "Presunto Fatiado 200g", 
+    "description": "presunto de sabor suave e textura macia, ideal para lanches e combinações rápidas", 
+    "price": 6.50, 
+    "category": "frios", 
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/989e60fb-f600-4430-82c4-5245cd2ddadb.jpg",
+    "stock": 70 
+  },
+  {
+    "name": "Adoçante Dietético Líquido Zero-cal Sucralose 100ml",
+    "description": "",
+    "price": "15.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/922d1048-a140-48eb-bfb9-bead0ae9e00f.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre De Vinho Branco Minhoto Frasco 500ml",
+    "description": "",
+    "price": "7.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2d73ed86-b6e3-4dbe-be64-160690d0f60f.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Instantâneo Chocolatto 3 Corações Pacote 700g",
+    "description": "",
+    "price": "21.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/40a94673-c918-47e0-b835-615eaacf7756.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Caldo Knorr Bacon, Cebola, Alho E Louro Cx 57g",
+    "description": "",
+    "price": "3.39",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/81f8e5dd-85cf-4b73-9e49-a5df05f070fe.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Goma De Mascar Trident Sabor Hortelã 8,5g Com 5 Unids.",
+    "description": "",
+    "price": "3.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/3c56c15e-c4ae-4f9d-bd1f-9e97357173e6.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Sustagen Kids Baunilha 350g",
+    "description": "",
+    "price": "51.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/c002aa7c-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Chiclete Mentos Up 2u Menta E Tutti Frutti 28 Unidades",
+    "description": "",
+    "price": "14.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/8403d802-0599-4a1a-be47-1eab52ed219c.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre De Álcool Minhoto Frasco 250ml",
+    "description": "",
+    "price": "2.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/70ce4616-165d-4832-9eba-6f7a89d86ed6.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre Alcool Nordestao Tb 500ml",
+    "description": "",
+    "price": "1.79",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/fae64b32-ab74-4540-b62b-fb5f78ddb20d.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre Alcool Leto Tb 500ml",
+    "description": "",
+    "price": "1.59",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/86e0df07-3747-43a6-907d-1839f1df78e1.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Papinha Orgânica Papapá 100g Banana, Mirtilo E Quinoa",
+    "description": "",
+    "price": "9.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/d417c2b2-7771-4994-83e5-072d39dc4477.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Confeito De Chocolate Ao Leite M&m S Minis 30gr",
+    "description": "",
+    "price": "6.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/a5961810-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre Balsâmico Peganini Vidro 500ml",
+    "description": "",
+    "price": "40.29",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/68a977ff-6ea2-4775-a290-7af7feddb5e9.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Goma De Mascar Trident Sabor Herbal Fresh 8g Com 5 Unids.",
+    "description": "",
+    "price": "3.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/1a9f7091-2367-4052-937c-4c93b4b4ba38.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre Alcool Sadio Tb 500ml ",
+    "description": "",
+    "price": "1.89",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/80ee7a20-a52f-4179-803e-a1b642ff634a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Bala Fini Marsh Torção 60g",
+    "description": "",
+    "price": "10.29",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/c93ce0c1-c8e1-4975-9d91-3b557a309954.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Nutella B-ready 22g ",
+    "description": "",
+    "price": "5.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/768da892-edff-467e-8f75-e21ff4931b4a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Bala Fni Regaliz Sour Tubes Ácido Sabor Morango 80g",
+    "description": "",
+    "price": "8.79",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2c3e99bb-8f06-4ad7-94ad-d3287d87be80.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Papinha Orgânica Papapá 100g Manga",
+    "description": "",
+    "price": "9.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2ad7caa6-1c67-4451-a9ea-91e3c1fedd64.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre De Maçã Minhoto Frasco 500ml",
+    "description": "",
+    "price": "8.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/045c1018-0ed1-4940-a8c9-141f7a62088a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre Balsâmico Borges Vidro 250ml",
+    "description": "",
+    "price": "14.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/02ca89d4-9650-4d01-a286-99e8f147e5dd.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Complemento Alimentar Sustagen Kids Morango 350g",
+    "description": "",
+    "price": "51.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/4405d183-6c6f-475f-8a73-06d2c816e2c6.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Chocolate Com Recheio De Caramelo, Amendoim E Nougat Snickers Pacote 45g",
+    "description": "",
+    "price": "5.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/cc8651ec-1193-4580-b6c8-39aa81efc401.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Pastilha Mentos 35g Kiss Mini Morango",
+    "description": "",
+    "price": "13.69",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/0691d227-fd77-46dc-bb75-1d56ec5ce103.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Original Toddy 370g",
+    "description": "",
+    "price": "13.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/ddf9fab6-87b1-4da4-89e8-28ee0a480b94.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Goma De Mascar Trident Sabor Tutti Frutti C/ 5 Unids. 8g",
+    "description": "",
+    "price": "3.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/919f6c66-4c3e-4548-abb9-e4fb503551dc.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Original Toddy Pote 750g",
+    "description": "",
+    "price": "23.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/70e453e6-638f-49c6-b197-88debfa70220.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Nescau 550g",
+    "description": "",
+    "price": "19.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/a0bb1bf6-ff2b-4c2e-aa5a-f9b9f736c8f6.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado em Pó NESCAU 200g",
+    "description": "",
+    "price": "11.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/82c9e860-814a-4192-8d2b-6584c52142dd.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Papinha Orgânica Papapá 100g Pera, Espinafre E Abobrinha",
+    "description": "",
+    "price": "9.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/f2a63beb-ce99-4fbe-be1d-2469ecac10fb.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Nesquik Sachet 600g",
+    "description": "",
+    "price": "29.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/7e3d2341-5419-4e3d-94d3-d6b155fc4859.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Nescau Cilíndrico 33% Menos Açúcares 350g",
+    "description": "",
+    "price": "17.29",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/e2e26b57-329b-42f5-b13d-daa5a72b4d65.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Sustagen Kids Morango 190g",
+    "description": "",
+    "price": "19.79",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/c634978f-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Papinha Orgânica Papapá 100g Maçâ E Ameixa",
+    "description": "",
+    "price": "9.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/fae00ed9-2e17-4452-87a0-6ed86f0937d5.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Goma De Mascar Trident Sabor Menta 8,5g Com 5 Unids.",
+    "description": "",
+    "price": "3.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/f6cf5564-2bd8-4d2f-8d5c-c661cef71844.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Original Toddy 700g + Econômica",
+    "description": "",
+    "price": "20.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2252a51e-8149-4f08-a211-188900a9d720.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Powerlate Sc 200g",
+    "description": "",
+    "price": "7.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/55d286b3-4031-4a8a-90c2-de6ba672fdc6.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Powerlate 700g",
+    "description": "",
+    "price": "17.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2e18763d-093f-4095-90d8-07c1f2277d50.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó 3 Corações Chocolatto 200g",
+    "description": "",
+    "price": "6.89",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/c3545033-37da-413e-a50e-e3a0576d86e1.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Sustagen Kids Baunilha Sachê 190g",
+    "description": "",
+    "price": "19.79",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/c5ef96b3-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Maionese Heinz Tradicional 400g",
+    "description": "",
+    "price": "23.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/9045b2ba-a0cb-4ba3-90d7-96db2318b260.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Complemento Alimentar Sustagen Kids Morango 350g",
+    "description": "",
+    "price": "51.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/4405d183-6c6f-475f-8a73-06d2c816e2c6.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Sustagen Kids Chocolate 190g",
+    "description": "",
+    "price": "19.79",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/a120ae16-e0bf-4440-96a0-4f15eeada35b.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Sustagen Kids Baunilha Sachê 190g",
+    "description": "",
+    "price": "19.79",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/c5ef96b3-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó 3 Corações Chocolatto 200g",
+    "description": "",
+    "price": "6.89",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/c3545033-37da-413e-a50e-e3a0576d86e1.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Powerlate 700g",
+    "description": "",
+    "price": "17.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2e18763d-093f-4095-90d8-07c1f2277d50.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Powerlate Sc 200g",
+    "description": "",
+    "price": "7.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/55d286b3-4031-4a8a-90c2-de6ba672fdc6.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Original Toddy 700g + Econômica",
+    "description": "",
+    "price": "20.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2252a51e-8149-4f08-a211-188900a9d720.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Adoçante Zero-cal 100ml",
+    "description": "",
+    "price": "10.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/8d994326-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Pó Para Preparo De Bebida Enriquecido Com Vitaminas E Minerais Sem Sabor Sustagen Senior Lata 370g",
+    "description": "",
+    "price": "122.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/83945502-1aed-4c87-932d-fc5c3fccb261.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Sustagen Kids Morango 190g",
+    "description": "",
+    "price": "19.79",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/c634978f-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Po Nestle Nescau 30% Cacau Lata 180g",
+    "description": "",
+    "price": "21.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/80ee2071-d147-4ec7-97cd-b1fa202291be.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Nesquik Sachet 600g",
+    "description": "",
+    "price": "29.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/7e3d2341-5419-4e3d-94d3-d6b155fc4859.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Pó Para Preparo De Bebida Enriquecido Com Vitaminas E Minerais Baunilha Sustagen Senior Lata 370g",
+    "description": "",
+    "price": "122.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/cc6d735b-1867-4992-9eef-25ffe2a3d5ed.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado em Pó NESCAU 200g",
+    "description": "",
+    "price": "11.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/82c9e860-814a-4192-8d2b-6584c52142dd.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Nescau 550g",
+    "description": "",
+    "price": "19.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/a0bb1bf6-ff2b-4c2e-aa5a-f9b9f736c8f6.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Original Toddy Pote 750g",
+    "description": "",
+    "price": "23.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/70e453e6-638f-49c6-b197-88debfa70220.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Nescau Cilíndrico 33% Menos Açúcares 350g",
+    "description": "",
+    "price": "17.29",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/e2e26b57-329b-42f5-b13d-daa5a72b4d65.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Original Toddy 370g",
+    "description": "",
+    "price": "13.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/ddf9fab6-87b1-4da4-89e8-28ee0a480b94.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Adoçante Dietético Líquido Zero-cal Sucralose 100ml",
+    "description": "",
+    "price": "15.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/922d1048-a140-48eb-bfb9-bead0ae9e00f.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Adoc Adocyl Sucralose 80ml",
+    "description": "",
+    "price": "10.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/390b7220-3906-4993-bd05-02a799c3ec2f.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre De Vinho Branco Minhoto Frasco 500ml",
+    "description": "",
+    "price": "7.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2d73ed86-b6e3-4dbe-be64-160690d0f60f.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre Balsâmico Borges Vidro 250ml",
+    "description": "",
+    "price": "14.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/02ca89d4-9650-4d01-a286-99e8f147e5dd.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre De Maçã Minhoto Frasco 500ml",
+    "description": "",
+    "price": "8.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/045c1018-0ed1-4940-a8c9-141f7a62088a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Nescau 900g",
+    "description": "",
+    "price": "31.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/8b1ffd53-2a40-4360-b911-da17f9b5c6d2.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Adoçante Dietético Líquido Linea Sucralose 25ml",
+    "description": "",
+    "price": "6.89",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/f12d1cfb-5a59-4ed4-8379-f98dc751b1bc.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Adoçante Adocyl 200ml",
+    "description": "",
+    "price": "10.79",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/8c3e101b-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Açúcar Refinado Triturado Alegre 1kg",
+    "description": "",
+    "price": "3.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/914b4e7e-df5f-4eed-bfdd-c816d53e2f3c.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre Alcool Sadio Tb 500ml ",
+    "description": "",
+    "price": "1.89",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/80ee7a20-a52f-4179-803e-a1b642ff634a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Adoçante Assugrin 100ml",
+    "description": "",
+    "price": "5.99",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/8c1cf1ed-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre Balsâmico Peganini Vidro 500ml",
+    "description": "",
+    "price": "40.29",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/68a977ff-6ea2-4775-a290-7af7feddb5e9.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Adoçante Dietético Em Pó Linea Sucralose 50 Unids. 40g",
+    "description": "",
+    "price": "10.19",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/8fd0928b-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Achocolatado Em Pó Nescau Lata 350g",
+    "description": "",
+    "price": "15.79",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/98d6ecbb-4e4d-4fdc-ac93-484269c94a01.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre Alcool Leto Tb 500ml",
+    "description": "",
+    "price": "1.59",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/86e0df07-3747-43a6-907d-1839f1df78e1.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre Alcool Nordestao Tb 500ml",
+    "description": "",
+    "price": "1.79",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/fae64b32-ab74-4540-b62b-fb5f78ddb20d.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Vinagre De Álcool Minhoto Frasco 250ml",
+    "description": "",
+    "price": "2.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/70ce4616-165d-4832-9eba-6f7a89d86ed6.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Adoçante Adocyl 100ml",
+    "description": "",
+    "price": "4.59",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/8d31d250-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Sustagen Kids Baunilha 350g",
+    "description": "",
+    "price": "51.49",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/c002aa7c-c0b9-11e7-a6aa-063e6e4e9f3a.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Cappuccino Caramelo Salgado 3 Corações 20g",
+    "description": "",
+    "price": "2.69",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/2adce9db-55a2-4168-b7f6-d054f325b9d6.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Caldo Knorr Bacon, Cebola, Alho E Louro Cx 57g",
+    "description": "",
+    "price": "3.39",
+    "category": "alimentos",
+    "imageUrl": "https://produto-assets-vipcommerce-com-br.br-se1.magaluobjects.com/250x250/81f8e5dd-85cf-4b73-9e49-a5df05f070fe.jpg",
+    "stock": 100
+  }
 ]

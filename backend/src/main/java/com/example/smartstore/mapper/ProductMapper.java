@@ -15,6 +15,7 @@ public class ProductMapper {
                 .description(req.getDescription())
                 .price(req.getPrice())
                 .category(req.getCategory())
+                .imageUrl(req.getImageUrl())
                 .stock(req.getStock())
                 .build();
     }
@@ -27,6 +28,7 @@ public class ProductMapper {
                 .description(p.getDescription())
                 .price(p.getPrice())
                 .category(p.getCategory())
+                .imageUrl(p.getImageUrl())
                 .stock(p.getStock())
                 .createdAt(p.getCreatedAt())
                 .build();

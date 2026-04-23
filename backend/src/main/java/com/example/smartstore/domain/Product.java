@@ -31,7 +31,10 @@ public class Product {
     @Column(nullable = false) 
     private BigDecimal price; 
     
-    private String category; 
+    private String category;
+    
+    @Column(name = "image_url")
+    private String imageUrl;
     
     @Column(nullable = false) 
     private Integer stock; 

@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { environment } from '../../shared/enviroments/environments';
+import { environment } from '../../shared/environments/environments';
 
 export interface Message {
   id: string;

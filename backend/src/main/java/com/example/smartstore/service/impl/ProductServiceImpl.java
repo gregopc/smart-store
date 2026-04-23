@@ -80,6 +80,7 @@ public class ProductServiceImpl implements ProductService {
         existing.setDescription(request.getDescription());
         existing.setPrice(request.getPrice());
         existing.setCategory(request.getCategory());
+        existing.setImageUrl(request.getImageUrl());
         existing.setStock(request.getStock());
 
         Product updated = repository.save(existing);
@@ -114,6 +115,10 @@ public class ProductServiceImpl implements ProductService {
         if (request.getStock() < 0) {
             throw new BusinessException("Stock cannot be negative");
         }
+
+        if (request.getImageUrl() != null && request.getImageUrl().isBlank()) {
+            throw new BusinessException("Image URL cannot be blank");
+        }
     }
 
     private void validateBusinessRulesPartial(ProductUpdateRequest request) {
@@ -126,6 +131,10 @@ public class ProductServiceImpl implements ProductService {
             request.getStock() < 0) {
             throw new BusinessException("Stock cannot be negative");
         }
+
+        if (request.getImageUrl() != null && request.getImageUrl().isBlank()) {
+            throw new BusinessException("Image URL cannot be blank");
+        }
     }
 
     private <T> void updateIfPresent(T value, Consumer<T> setter) {
@@ -137,6 +146,7 @@ public class ProductServiceImpl implements ProductService {
         updateIfPresent(request.getDescription(), existing::setDescription);
         updateIfPresent(request.getPrice(), existing::setPrice);
         updateIfPresent(request.getCategory(), existing::setCategory);
+        updateIfPresent(request.getImageUrl(), existing::setImageUrl);
         updateIfPresent(request.getStock(), existing::setStock);
     }
 

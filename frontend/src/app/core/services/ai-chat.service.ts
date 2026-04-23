@@ -1,7 +1,7 @@
 import { Injectable, inject } from "@angular/core"
 import { firstValueFrom } from "rxjs"
 import { HttpClient } from "@angular/common/http"
-import { environment } from "../../shared/enviroments/environments"
+import { environment } from "../../shared/environments/environments"
 import { PaginatedApiResponse } from "../../shared/interfaces/api";
 
 @Injectable({
