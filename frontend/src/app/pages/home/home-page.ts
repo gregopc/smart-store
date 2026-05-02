@@ -1,4 +1,13 @@
-import { Component, WritableSignal, signal } from '@angular/core';
+import {
+  Component,
+  WritableSignal,
+  signal,
+  OnInit,
+  OnDestroy,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
+
 import { ProductService } from '../../core/services/product.service';
 import { Product } from '../../core/models/product';
 import { Card } from '../../shared/components/card/card';
@@ -13,7 +22,7 @@ import { ChatService } from '../../core/services/chat.service';
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit, OnDestroy {
 
   products: WritableSignal<Product[]> = signal([]);
 
@@ -23,28 +32,40 @@ export class HomePageComponent {
   loading = false;
   hasMore = true;
 
+  private observer?: IntersectionObserver;
+
+  @ViewChild('sentinel', { static: true })
+  sentinel!: ElementRef<HTMLDivElement>;
+
   constructor(private readonly productService: ProductService) {}
 
   async ngOnInit() {
     await this.loadProducts();
-
-    window.addEventListener('scroll', this.onScroll);
+    this.setupObserver();
   }
 
   ngOnDestroy() {
-    window.removeEventListener('scroll', this.onScroll);
+    this.observer?.disconnect();
   }
 
-  onScroll = () => {
-    const threshold = 200;
+  private setupObserver() {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
 
-    const position = window.innerHeight + window.scrollY;
-    const height = document.body.offsetHeight;
+        if (entry.isIntersecting) {
+          this.loadProducts();
+        }
+      },
+      {
+        root: null,           // viewport
+        rootMargin: '600px',  // começa antes de chegar no fim
+        threshold: 0,
+      }
+    );
 
-    if (position >= height - threshold) {
-      this.loadProducts();
-    }
-  };
+    this.observer.observe(this.sentinel.nativeElement);
+  }
 
   async loadProducts() {
     if (this.loading || !this.hasMore) return;
