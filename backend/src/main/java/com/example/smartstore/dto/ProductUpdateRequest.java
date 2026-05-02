@@ -20,6 +20,8 @@ public class ProductUpdateRequest {
 
     private String category;
 
+    private String imageUrl;
+
     @Min(0)
     private Integer stock;
 }

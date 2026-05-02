@@ -4,6 +4,19 @@
       [title]="product.name"
       [description]="product.description"
       [price]="product.price.toString()"
+      [imageUrl]="product.imageUrl"
     ></app-card>
   }
 </div>
+
+@if (loading) {
+  <p style="text-align: center; margin: 20px;">
+    Carregando produtos...
+  </p>
+}
+
+@if (!hasMore && products().length > 0) {
+  <p style="text-align: center; margin: 20px;">
+    Você chegou ao fim dos produtos
+  </p>
+}

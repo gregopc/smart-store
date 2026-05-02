@@ -1,6 +1,6 @@
 import { Injectable, signal, inject } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { environment } from '../../shared/enviroments/environments';
+import { environment } from '../../shared/environments/environments';
 import { firstValueFrom } from 'rxjs';
 import { ChatSuggestionResponse, ProductDTO } from './dto/chat-response';
 
