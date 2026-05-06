@@ -31,6 +31,7 @@ public class SecurityConfig {
                     req.requestMatchers("/h2-console/**").permitAll();
                     req.requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll();
                     req.requestMatchers(HttpMethod.GET, "/products/**").permitAll();
+                    req.requestMatchers("/assistant/**").permitAll();
                     req.anyRequest().authenticated();
                 })
                 .headers(headers -> headers.frameOptions(frame -> frame.disable()))
