@@ -2,8 +2,11 @@ package com.example.smartstore.controller;
 
 import com.example.smartstore.dto.AddItemRequest;
 import com.example.smartstore.dto.CartResponse;
+import com.example.smartstore.dto.CheckoutRequest;
+import com.example.smartstore.dto.OrderResponse;
 import com.example.smartstore.domain.User;
 import com.example.smartstore.service.CartService;
+import com.example.smartstore.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,6 +26,7 @@ import java.util.UUID;
 public class CartController {
 
     private final CartService cartService;
+    private final OrderService orderService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -41,6 +45,13 @@ public class CartController {
     @Operation(summary = "Adiciona um item ao carrinho")
     public CartResponse addItem(@AuthenticationPrincipal User user, @RequestBody AddItemRequest request) {
         return cartService.addItemToCart(user, request);
+    }
+
+    @PostMapping("/my-cart/checkout")
+    @ResponseStatus(HttpStatus.CREATED)
+    @Operation(summary = "Finaliza o checkout do carrinho, usando mockPayment como método de pagamento")
+    public OrderResponse checkout(@AuthenticationPrincipal User user, @RequestBody CheckoutRequest request) {
+        return orderService.checkoutCart(user, request);
     }
 
     @DeleteMapping("/my-cart/items/{itemId}")
