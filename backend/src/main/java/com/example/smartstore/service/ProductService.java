@@ -14,14 +14,13 @@ public interface ProductService {
     ProductResponse createProduct(ProductRequest request);
 
     Page<ProductResponse> getAllProducts(Pageable pageable);
-
     ProductResponse getProductById(UUID id);
+    Page<ProductResponse> searchProducts(String query, Pageable pageable);
+
+    List<Product> findRelevantProductsForAssistant(String query);
 
     ProductResponse updateProduct(UUID id, ProductRequest request);
-
     ProductResponse partialUpdateProduct(UUID id, ProductUpdateRequest request);
 
     void deleteProduct(UUID id);
-
-    List<Product> findRelevantProducts(String query);
 }

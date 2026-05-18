@@ -34,7 +34,7 @@ public class AssistantService {
         String searchQuery = cleanKeywords(rawKeywords);
         // System.out.println("searchQuery");
         // System.out.println(searchQuery);
-        List<Product> relevantProducts = productService.findRelevantProducts(searchQuery);
+        List<Product> relevantProducts = productService.findRelevantProductsForAssistant(searchQuery);
         // System.out.println("relevantProducts");
         // System.out.println(relevantProducts);
 
@@ -66,7 +66,7 @@ public class AssistantService {
     public String chat(String message) {
         String rawKeywords = aiClient.extractKeywords(message);
         String searchQuery = cleanKeywords(rawKeywords);
-        List<Product> products = productService.findRelevantProducts(searchQuery);
+        List<Product> products = productService.findRelevantProductsForAssistant(searchQuery);
         String prompt = buildPrompt(message, products);
         return aiClient.generateReply(prompt);
     }

@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.PageImpl;
 
 import java.util.UUID;
 import java.util.List;
@@ -46,7 +47,42 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findRelevantProducts(String query) {
+    public Page<ProductResponse> searchProducts(String query, Pageable pageable) {
+
+        List<Product> products = repository.findAll();
+
+        String normalizedQuery = normalize(query);
+
+        List<String> terms = Arrays.stream(normalizedQuery.split(" "))
+            .filter(t -> !t.isBlank())
+            .filter(t -> !STOPWORDS.contains(t))
+            .toList();
+
+        List<ProductResponse> ranked = products.stream()
+            .map(p -> Map.entry(p, score(p, terms)))
+            .filter(entry -> entry.getValue() > 0)
+            .sorted((a, b) -> Integer.compare(b.getValue(), a.getValue()))
+            .map(Map.Entry::getKey)
+            .map(mapper::toResponse)
+            .toList();
+
+        int start = (int) pageable.getOffset();
+        int end = Math.min(start + pageable.getPageSize(), ranked.size());
+
+        List<ProductResponse> content =
+            start > ranked.size()
+                ? List.of()
+                : ranked.subList(start, end);
+
+        return new PageImpl<>(
+            content,
+            pageable,
+            ranked.size()
+        );
+    }
+
+    @Override
+    public List<Product> findRelevantProductsForAssistant(String query) {
         List<Product> products = repository.findAll();
 
         String normalizedQuery = normalize(query);
