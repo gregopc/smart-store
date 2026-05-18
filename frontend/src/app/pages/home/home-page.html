@@ -1,5 +1,5 @@
 <div class="cards">
-  @for (product of products(); track product.id) {
+  @for (product of products(); track $index) {
     <app-card
       [title]="product.name"
       [description]="product.description"
@@ -9,16 +9,16 @@
   }
 </div>
 
-<div #sentinel class="sentinel"></div>
+<div #sentinel style="height: 1px;"></div>
 
 @if (loading) {
-  <p class="status-message">
-    Buscando produtos...
+  <p style="text-align: center; margin: 20px;">
+    Carregando produtos...
   </p>
 }
 
 @if (!hasMore && products().length > 0) {
-  <p class="status-message">
+  <p style="text-align: center; margin: 20px;">
     Você chegou ao fim dos produtos
   </p>
 }

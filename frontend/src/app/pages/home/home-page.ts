@@ -13,6 +13,7 @@ import {
 import { ProductService } from '../../core/services/product.service';
 import { Product } from '../../core/models/product';
 import { Card } from '../../shared/components/card/card';
+import { ChatService } from '../../core/services/chat.service';
 import { SearchStateService } from '../../core/services/search-state.service';
 
 
@@ -28,26 +29,22 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   private productService = inject(ProductService);
   private searchState = inject(SearchStateService);
-  private requestId = 0;
 
   products: WritableSignal<Product[]> = signal([]);
 
-  constructor() {
-    effect(() => {
-      const query = this.searchState.getQuery()();
+  private searchEffect = effect(() => {
+    const query = this.searchState.getQuery()();
 
-      this.searchQuery.set(query || null);
+    if (!query) return;
 
-      this.page = 0;
-      this.products.set([]);
-      this.hasMore = true;
+    this.searchQuery.set(query);
 
-      this.requestId++;
-      this.loading = false;
+    this.page = 0;
+    this.products.set([]);
+    this.hasMore = true;
 
-      this.loadProducts();
-    });
-  }
+    this.loadProducts();
+  });
 
   searchQuery = signal<string | null>(null);
 
@@ -63,6 +60,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   sentinel!: ElementRef<HTMLDivElement>;
 
   async ngOnInit() {
+    await this.loadProducts();
     this.setupObserver();
   }
 
@@ -94,44 +92,48 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
     this.loading = true;
 
-    const currentRequest = this.requestId;
-
     try {
+      let response;
+
       const query = this.searchQuery();
 
-      const response = query
-        ? await this.productService.search(
-            query,
-            this.page,
-            this.size
-          )
-        : await this.productService.getProducts(
-            this.page,
-            this.size
-          );
+      if (query) {
+        response = await this.productService.search(query, this.page, this.size);
+      } else {
+        response = await this.productService.getProducts(this.page, this.size);
+      }
 
-      if (currentRequest !== this.requestId) return;
+      console.log('RESPONSE:', response);
+      console.log('CONTENT:', response.content);
+      console.log('IS ARRAY?', Array.isArray(response.content));
+
+      let content: Product[] = [];
+      let isLast = false;
+
+      if (Array.isArray(response)) {
+        // 🔍 busca (não paginada)
+        content = response;
+        isLast = true; // não tem paginação
+      } else {
+        // 🛍️ lista normal (paginada)
+        content = response.content;
+        isLast = response.last;
+      }
 
       this.products.update(current => [
         ...current,
-        ...response.content
+        ...content
       ]);
 
-      this.hasMore =
-        !response.last &&
-        response.content.length > 0;
+      if (isLast || content.length === 0) {
+        this.hasMore = false;
+      }
 
       this.page++;
-
     } catch (error) {
-      console.error(
-        'Erro ao carregar produtos:',
-        error
-      );
+      console.error('Erro ao carregar produtos:', error);
     } finally {
-      if (currentRequest === this.requestId) {
-        this.loading = false;
-      }
+      this.loading = false;
     }
   }
 }

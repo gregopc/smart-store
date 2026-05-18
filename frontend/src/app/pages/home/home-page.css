@@ -1,15 +1,6 @@
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
-  padding: 20px clamp(20px, 8vw, 150px);
-}
-
-.sentinel {
-  height: 1px;
-}
-
-.status-message {
-  text-align: center;
-  margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    padding: 20px 150px;
 }

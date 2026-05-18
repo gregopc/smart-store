@@ -15,14 +15,8 @@ export class ProductService {
 
   async getProducts(page = 0, size = 12) {
     return firstValueFrom(
-      this.http.get<PaginatedApiResponse<Product>>(
-        `${this.API_URL}`,
-        {
-          params: {
-            page,
-            size
-          }
-        }
+      this.http.get<PaginatedApiResponse<Product[]>>(
+        `${this.API_URL}?page=${page}&size=${size}`
       )
     );
   }
@@ -33,15 +27,8 @@ export class ProductService {
 
   async search(query: string, page = 0, size = 12) {
     return firstValueFrom(
-      this.http.get<PaginatedApiResponse<Product>>(
-        `${this.API_URL}/search`,
-        {
-          params: {
-            query,
-            page,
-            size
-          }
-        }
+      this.http.get<PaginatedApiResponse<Product[]>>(
+        `${this.API_URL}/search?query=${query}&page=${page}&size=${size}`
       )
     );
   }
