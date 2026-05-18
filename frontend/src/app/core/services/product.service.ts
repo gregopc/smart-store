@@ -24,4 +24,12 @@ export class ProductService {
   async getProduct(id: string): Promise<Product> {
     return firstValueFrom(this.http.get<Product>(`${this.API_URL}/${id}`));
   }
+
+  async search(query: string, page = 0, size = 12) {
+    return firstValueFrom(
+      this.http.get<PaginatedApiResponse<Product[]>>(
+        `${this.API_URL}/search?query=${query}&page=${page}&size=${size}`
+      )
+    );
+  }
 }

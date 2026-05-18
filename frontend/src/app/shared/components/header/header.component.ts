@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { ProductService } from '../../../core/services/product.service';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +8,12 @@ import { ProductService } from '../../../core/services/product.service';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  private productService = inject(ProductService);
 
-  search() {
-    console.log('Search');
+  @Output() searchEvent = new EventEmitter<string>();
+
+  search(query: string) {
+    if (!query.trim()) return;
+
+    this.searchEvent.emit(query);
   }
-
 }
