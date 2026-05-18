@@ -1,5 +1,5 @@
 export interface PaginatedApiResponse<T> extends ApiResponseMetaData {
-  content: T
+  content: T[]
 }
 
 export interface ApiResponseMetaData {

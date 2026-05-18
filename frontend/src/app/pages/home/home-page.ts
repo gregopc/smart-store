@@ -13,7 +13,6 @@ import {
 import { ProductService } from '../../core/services/product.service';
 import { Product } from '../../core/models/product';
 import { Card } from '../../shared/components/card/card';
-import { ChatService } from '../../core/services/chat.service';
 import { SearchStateService } from '../../core/services/search-state.service';
 
 
@@ -29,22 +28,26 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   private productService = inject(ProductService);
   private searchState = inject(SearchStateService);
+  private requestId = 0;
 
   products: WritableSignal<Product[]> = signal([]);
 
-  private searchEffect = effect(() => {
-    const query = this.searchState.getQuery()();
+  constructor() {
+    effect(() => {
+      const query = this.searchState.getQuery()();
 
-    if (!query) return;
+      this.searchQuery.set(query || null);
 
-    this.searchQuery.set(query);
+      this.page = 0;
+      this.products.set([]);
+      this.hasMore = true;
 
-    this.page = 0;
-    this.products.set([]);
-    this.hasMore = true;
+      this.requestId++;
+      this.loading = false;
 
-    this.loadProducts();
-  });
+      this.loadProducts();
+    });
+  }
 
   searchQuery = signal<string | null>(null);
 
@@ -60,7 +63,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
   sentinel!: ElementRef<HTMLDivElement>;
 
   async ngOnInit() {
-    await this.loadProducts();
     this.setupObserver();
   }
 
@@ -92,48 +94,44 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
     this.loading = true;
 
-    try {
-      let response;
+    const currentRequest = this.requestId;
 
+    try {
       const query = this.searchQuery();
 
-      if (query) {
-        response = await this.productService.search(query, this.page, this.size);
-      } else {
-        response = await this.productService.getProducts(this.page, this.size);
-      }
+      const response = query
+        ? await this.productService.search(
+            query,
+            this.page,
+            this.size
+          )
+        : await this.productService.getProducts(
+            this.page,
+            this.size
+          );
 
-      console.log('RESPONSE:', response);
-      console.log('CONTENT:', response.content);
-      console.log('IS ARRAY?', Array.isArray(response.content));
-
-      let content: Product[] = [];
-      let isLast = false;
-
-      if (Array.isArray(response)) {
-        // 🔍 busca (não paginada)
-        content = response;
-        isLast = true; // não tem paginação
-      } else {
-        // 🛍️ lista normal (paginada)
-        content = response.content;
-        isLast = response.last;
-      }
+      if (currentRequest !== this.requestId) return;
 
       this.products.update(current => [
         ...current,
-        ...content
+        ...response.content
       ]);
 
-      if (isLast || content.length === 0) {
-        this.hasMore = false;
-      }
+      this.hasMore =
+        !response.last &&
+        response.content.length > 0;
 
       this.page++;
+
     } catch (error) {
-      console.error('Erro ao carregar produtos:', error);
+      console.error(
+        'Erro ao carregar produtos:',
+        error
+      );
     } finally {
-      this.loading = false;
+      if (currentRequest === this.requestId) {
+        this.loading = false;
+      }
     }
   }
 }

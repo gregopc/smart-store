@@ -12,8 +12,6 @@ export class HeaderComponent {
   @Output() searchEvent = new EventEmitter<string>();
 
   search(query: string) {
-    if (!query.trim()) return;
-
-    this.searchEvent.emit(query);
+    this.searchEvent.emit(query.trim());
   }
 }
