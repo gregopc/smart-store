@@ -4,7 +4,7 @@ import { Injectable, signal } from '@angular/core';
 export class SearchStateService {
   private query = signal<string | null>(null);
 
-  setQuery(value: string) {
+  setQuery(value: string | null) {
     this.query.set(value);
   }
 

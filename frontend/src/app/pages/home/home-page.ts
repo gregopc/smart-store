@@ -13,6 +13,7 @@ import {
 import { ProductService } from '../../core/services/product.service';
 import { Product } from '../../core/models/product';
 import { Card } from '../../shared/components/card/card';
+import { ChatService } from '../../core/services/chat.service';
 import { SearchStateService } from '../../core/services/search-state.service';
 
 
@@ -34,16 +35,25 @@ export class HomePageComponent implements OnInit, OnDestroy {
   private searchEffect = effect(() => {
     const query = this.searchState.getQuery()();
 
-    if (!query) return;
+    if (query === null) return;
 
-    this.searchQuery.set(query);
+    this.searchQuery.set(query || null);
+    this.resetAndLoad();
+  });
 
+  private resetAndLoad() {
     this.page = 0;
     this.products.set([]);
     this.hasMore = true;
+    this.loading = false; // garante que não fica travado
 
-    this.loadProducts();
-  });
+    // reconecta o observer para garantir que o sentinel redispare
+    this.observer?.disconnect();
+
+    this.loadProducts().then(() => {
+      this.setupObserver(); // reobserva após carregar primeira página
+    });
+  }
 
   searchQuery = signal<string | null>(null);
 
@@ -102,22 +112,11 @@ export class HomePageComponent implements OnInit, OnDestroy {
         response = await this.productService.getProducts(this.page, this.size);
       }
 
-      console.log('RESPONSE:', response);
-      console.log('CONTENT:', response.content);
-      console.log('IS ARRAY?', Array.isArray(response.content));
-
       let content: Product[] = [];
       let isLast = false;
 
-      if (Array.isArray(response)) {
-        // 🔍 busca (não paginada)
-        content = response;
-        isLast = true; // não tem paginação
-      } else {
-        // 🛍️ lista normal (paginada)
-        content = response.content;
-        isLast = response.last;
-      }
+      content = response.content;
+      isLast = response.last;
 
       this.products.update(current => [
         ...current,

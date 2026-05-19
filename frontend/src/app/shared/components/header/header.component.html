@@ -1,11 +1,14 @@
 <header>
-    <h1>Smart Store</h1>
+    <h1>
+        <a routerLink="/" class="home-link">Smart Store</a>
+    </h1>
     <div class="search">
         <input
             #searchInput
             type="text" 
             placeholder="Busque produtos e alimentos..."
             (keyup.enter)="search(searchInput.value)"
+            (input)="onInput(searchInput.value)"
         >
         <button class="clickable search-button" (click)="search(searchInput.value)">
             <svg  viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#77767b"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#3d3846" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
