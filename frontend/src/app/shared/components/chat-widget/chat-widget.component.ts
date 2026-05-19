@@ -3,13 +3,12 @@ import {
   AfterViewChecked, signal, effect
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { ChatService } from '../../../core/services/chat.service';
 
 @Component({
   selector: 'app-chat-widget',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule],
   templateUrl: './chat-widget.component.html',
   styleUrl: './chat-widget.component.css'
 })

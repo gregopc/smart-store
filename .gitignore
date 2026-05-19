@@ -17,4 +17,4 @@ run.md
 # H2 database files
 /data/
 
-.gitignore
+node_modules

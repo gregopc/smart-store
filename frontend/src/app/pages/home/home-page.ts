@@ -13,7 +13,6 @@ import {
 import { ProductService } from '../../core/services/product.service';
 import { Product } from '../../core/models/product';
 import { Card } from '../../shared/components/card/card';
-import { ChatService } from '../../core/services/chat.service';
 import { SearchStateService } from '../../core/services/search-state.service';
 
 

@@ -13,6 +13,8 @@ import com.example.smartstore.repository.CartItemRepository;
 import com.example.smartstore.repository.CartRepository;
 import com.example.smartstore.repository.ProductRepository;
 import com.example.smartstore.service.CartService;
+import com.example.smartstore.service.PromotionEngine;
+import com.example.smartstore.service.PromotionEvaluation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +31,7 @@ public class CartServiceImpl implements CartService {
     private final CartRepository cartRepository;
     private final ProductRepository productRepository;
     private final CartItemRepository cartItemRepository;
+    private final PromotionEngine promotionEngine;
 
     @Override
     @Transactional
@@ -128,14 +131,20 @@ public class CartServiceImpl implements CartService {
                 .map(this::mapToCartItemResponse)
                 .collect(Collectors.toList());
 
-        BigDecimal total = itemResponses.stream()
+        BigDecimal subtotal = itemResponses.stream()
                 .map(CartItemResponse::getSubtotal)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+        PromotionEvaluation promotionEvaluation = promotionEngine.evaluate(cart, cart.getUser());
 
         return CartResponse.builder()
                 .cartId(cart.getId())
                 .items(itemResponses)
-                .total(total)
+                .subtotal(subtotal)
+                .discountTotal(promotionEvaluation.getDiscountTotal())
+                .finalTotal(promotionEvaluation.getFinalTotal())
+                .total(promotionEvaluation.getFinalTotal())
+                .appliedPromotion(promotionEvaluation.getAppliedPromotion())
+                .suggestedPromotions(promotionEvaluation.getSuggestedPromotions())
                 .build();
     }
 

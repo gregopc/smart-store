@@ -27,6 +27,9 @@ public class Cart {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(name = "applied_promotion_id")
+    private UUID appliedPromotionId;
+
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 

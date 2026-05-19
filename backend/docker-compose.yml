@@ -1,0 +1,50 @@
+services:
+  postgres:
+    build:
+      context: ./docker/postgres
+    container_name: smart-store-postgres
+    environment:
+      POSTGRES_DB: smartstore
+      POSTGRES_USER: smartstore
+      POSTGRES_PASSWORD: smartstore
+    ports:
+      - "5432:5432"
+    volumes:
+      - smart-store-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U smartstore -d smartstore"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    build:
+      context: ./docker/rabbitmq
+    container_name: smart-store-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_port_connectivity"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  user-action-consumer:
+    build:
+      context: ./user-action-consumer
+    container_name: smart-store-user-action-consumer
+    environment:
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
+      RABBITMQ_EXCHANGE: smartstore.user-actions
+      RABBITMQ_QUEUE: smartstore.user-actions.queue
+      RABBITMQ_ROUTING_KEY: user-actions
+      DATABASE_URL: postgresql://smartstore:smartstore@postgres:5432/smartstore
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+volumes:
+  smart-store-postgres-data:

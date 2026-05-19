@@ -2,6 +2,8 @@ package com.example.smartstore.data;
 
 import com.example.smartstore.domain.Product;
 import com.example.smartstore.repository.ProductRepository;
+import com.example.smartstore.repository.CartRepository;
+import com.example.smartstore.repository.CartItemRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,31 +15,40 @@ import java.util.List;
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final ProductRepository repository;
+    private final ProductRepository productRepository;
+    private final CartRepository cartRepository;
+    private final CartItemRepository cartItemRepository;
     private final ObjectMapper objectMapper;
 
-    public DataLoader(ProductRepository repository, ObjectMapper objectMapper) {
-        this.repository = repository;
+    public DataLoader(
+            ProductRepository productRepository,
+            CartRepository cartRepository,
+            CartItemRepository cartItemRepository,
+            ObjectMapper objectMapper) {
+        this.productRepository = productRepository;
+        this.cartRepository = cartRepository;
+        this.cartItemRepository = cartItemRepository;
         this.objectMapper = objectMapper;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
-        repository.deleteAll();
+        cartItemRepository.deleteAll();
+        cartRepository.deleteAll();
+        productRepository.deleteAll();
 
         // if (repository.count() > 0) return;
 
         InputStream inputStream = getClass()
-        .getResourceAsStream("/products.json");
+                .getResourceAsStream("/products.json");
 
         if (inputStream == null) {
             throw new RuntimeException("products.json not found");
         }
 
         List<Product> products = Arrays.asList(
-                objectMapper.readValue(inputStream, Product[].class)
-        );
+                objectMapper.readValue(inputStream, Product[].class));
 
         products.forEach(p -> {
             if (p.getStock() == null) {
@@ -45,6 +56,6 @@ public class DataLoader implements CommandLineRunner {
             }
         });
 
-        repository.saveAll(products);
+        productRepository.saveAll(products);
     }
 }
