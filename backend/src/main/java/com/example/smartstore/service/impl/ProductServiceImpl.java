@@ -1,28 +1,35 @@
 package com.example.smartstore.service.impl;
 
 import com.example.smartstore.domain.Product;
+import com.example.smartstore.domain.ProductSortField;
 import com.example.smartstore.dto.ProductRequest;
 import com.example.smartstore.dto.ProductUpdateRequest;
 import com.example.smartstore.dto.ProductResponse;
 import com.example.smartstore.exception.EntityNotFoundException;
 import com.example.smartstore.mapper.ProductMapper;
 import com.example.smartstore.repository.ProductRepository;
+import com.example.smartstore.repository.ProductSpecification;
 import com.example.smartstore.service.ProductService;
 import com.example.smartstore.exception.BusinessException;
+
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.UUID;
 import java.util.List;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
-import java.text.Normalizer;
-
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.text.Normalizer;
 import java.math.BigDecimal;
 
 @Service
@@ -42,43 +49,76 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Page<ProductResponse> getAllProducts(Pageable pageable) {
-        return repository.findAll(pageable).map(mapper::toResponse);
+    public Page<ProductResponse> getAllProducts(
+            String category,
+            BigDecimal minPrice,
+            BigDecimal maxPrice,
+            Boolean inStock,
+            Pageable pageable
+    ) {
+        Specification<Product> spec = ProductSpecification.withFilters(
+            category, minPrice, maxPrice, inStock
+        );
+        return repository.findAll(spec, pageable).map(mapper::toResponse);
     }
 
     @Override
-    public Page<ProductResponse> searchProducts(String query, Pageable pageable) {
+    public Page<ProductResponse> searchProducts(
+            String query,
+            String category,
+            BigDecimal minPrice,
+            BigDecimal maxPrice,
+            Boolean inStock,
+            String sortBy,
+            String sortDir,
+            Pageable pageable
+    ) {
+        Specification<Product> spec = ProductSpecification.withFilters(
+            category, minPrice, maxPrice, inStock
+        );
 
-        List<Product> products = repository.findAll();
+        List<Product> products = repository.findAll(spec);
 
         String normalizedQuery = normalize(query);
-
         List<String> terms = Arrays.stream(normalizedQuery.split(" "))
             .filter(t -> !t.isBlank())
             .filter(t -> !STOPWORDS.contains(t))
             .toList();
 
-        List<ProductResponse> ranked = products.stream()
+        List<Product> filtered = products.stream()
             .map(p -> Map.entry(p, score(p, terms)))
-            .filter(entry -> entry.getValue() > 0)
+            .filter(e -> e.getValue() > 0)
             .sorted((a, b) -> Integer.compare(b.getValue(), a.getValue()))
             .map(Map.Entry::getKey)
+            .collect(Collectors.toCollection(ArrayList::new));
+
+        if (sortBy != null && !sortBy.isBlank()) {
+            ProductSortField.fromString(sortBy);
+
+            Comparator<Product> comparator = switch (sortBy) {
+                case "price"     -> Comparator.comparing(Product::getPrice);
+                case "name"      -> Comparator.comparing(Product::getName, String.CASE_INSENSITIVE_ORDER);
+                case "createdAt" -> Comparator.comparing(Product::getCreatedAt);
+                default          -> throw new BusinessException("Invalid sort field: " + sortBy);
+            };
+
+            if ("desc".equalsIgnoreCase(sortDir)) comparator = comparator.reversed();
+
+            filtered.sort(comparator);
+        }
+
+        List<ProductResponse> ranked = filtered.stream()
             .map(mapper::toResponse)
             .toList();
 
         int start = (int) pageable.getOffset();
-        int end = Math.min(start + pageable.getPageSize(), ranked.size());
+        int end   = Math.min(start + pageable.getPageSize(), ranked.size());
 
-        List<ProductResponse> content =
-            start > ranked.size()
-                ? List.of()
-                : ranked.subList(start, end);
+        List<ProductResponse> content = start >= ranked.size()
+            ? List.of()
+            : ranked.subList(start, end);
 
-        return new PageImpl<>(
-            content,
-            pageable,
-            ranked.size()
-        );
+        return new PageImpl<>(content, pageable, ranked.size());
     }
 
     @Override

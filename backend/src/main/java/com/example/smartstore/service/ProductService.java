@@ -9,13 +9,31 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.UUID;
 import java.util.List;
+import java.math.BigDecimal;
 
 public interface ProductService {
     ProductResponse createProduct(ProductRequest request);
 
-    Page<ProductResponse> getAllProducts(Pageable pageable);
+    Page<ProductResponse> getAllProducts(
+        String category,
+        BigDecimal minPrice,
+        BigDecimal maxPrice,
+        Boolean inStock,
+        Pageable pageable
+    );
+
     ProductResponse getProductById(UUID id);
-    Page<ProductResponse> searchProducts(String query, Pageable pageable);
+    
+    Page<ProductResponse> searchProducts(
+        String query,
+        String category,
+        BigDecimal minPrice,
+        BigDecimal maxPrice,
+        Boolean inStock,
+        String sortBy,
+        String sortDir,
+        Pageable pageable
+    );
 
     List<Product> findRelevantProductsForAssistant(String query);
 

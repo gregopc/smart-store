@@ -4,16 +4,22 @@ import com.example.smartstore.dto.ProductRequest;
 import com.example.smartstore.dto.ProductUpdateRequest;
 import com.example.smartstore.dto.ProductResponse;
 import com.example.smartstore.service.ProductService;
+import com.example.smartstore.domain.ProductSortField;
+
 import jakarta.validation.Valid;
+
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.UUID;
+import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/products")
@@ -32,11 +38,32 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<Page<ProductResponse>> list(
         @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "10") int size
+        @RequestParam(defaultValue = "10") int size,
+        @RequestParam(required = false) String category,
+        @RequestParam(required = false) BigDecimal minPrice,
+        @RequestParam(required = false) BigDecimal maxPrice,
+        @RequestParam(required = false) Boolean inStock,
+        @RequestParam(required = false) String sortBy,
+        @RequestParam(defaultValue = "asc") String sortDir
     ) {
-        Pageable pageable = PageRequest.of(page, size);
-        Page<ProductResponse> result = productService.getAllProducts(pageable);
-        return ResponseEntity.ok(result);
+        Sort sort = buildSort(sortBy, sortDir);
+        Pageable pageable = PageRequest.of(page, size, sort);
+
+        return ResponseEntity.ok(
+            productService.getAllProducts(category, minPrice, maxPrice, inStock, pageable)
+        );
+    }
+
+    private Sort buildSort(String sortBy, String sortDir) {
+        if (sortBy == null || sortBy.isBlank()) return Sort.unsorted();
+
+        ProductSortField.fromString(sortBy);
+
+        Sort.Direction direction = "desc".equalsIgnoreCase(sortDir)
+            ? Sort.Direction.DESC
+            : Sort.Direction.ASC;
+
+        return Sort.by(direction, sortBy);
     }
 
     @GetMapping("/{id}")
@@ -48,11 +75,19 @@ public class ProductController {
     public ResponseEntity<Page<ProductResponse>> search(
         @RequestParam String query,
         @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "10") int size
+        @RequestParam(defaultValue = "10") int size,
+        @RequestParam(required = false) String category,
+        @RequestParam(required = false) BigDecimal minPrice,
+        @RequestParam(required = false) BigDecimal maxPrice,
+        @RequestParam(required = false) Boolean inStock,
+        @RequestParam(required = false) String sortBy,
+        @RequestParam(defaultValue = "asc") String sortDir
     ) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<ProductResponse> result = productService.searchProducts(query, pageable);
-        return ResponseEntity.ok(result);
+
+        return ResponseEntity.ok(
+            productService.searchProducts(query, category, minPrice, maxPrice, inStock, sortBy, sortDir, pageable)
+        );
     }
 
     @PutMapping("/{id}")
