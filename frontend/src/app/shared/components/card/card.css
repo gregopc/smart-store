@@ -55,3 +55,18 @@
 .card:hover {
     transform: scale(1.05);
 }
+
+.cart-button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity .2s ease;
+}
+
+.cart-button:hover {
+  opacity: .9;
+}

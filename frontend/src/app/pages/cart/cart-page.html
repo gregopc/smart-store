@@ -1,3 +1,71 @@
-<div>
-  Cart Page
-</div>
+<section class="cart-page">
+
+  <h1>Carrinho</h1>
+
+  @if (cartService.isEmpty()) {
+
+    <div class="empty-cart">
+
+      <h2>Seu carrinho está vazio</h2>
+
+      <p>
+        Adicione alguns produtos para começar suas compras.
+      </p>
+
+    </div>
+
+  } @else {
+
+    <div class="cart-layout">
+
+      <section class="cart-items">
+
+        @for (item of cartService.items(); track item.product.id) {
+
+          <app-cart-item
+            [item]="item">
+          </app-cart-item>
+
+        }
+
+      </section>
+
+      <aside class="summary">
+
+        <h2>Resumo</h2>
+
+        <div class="summary-row">
+
+          <span>Itens</span>
+
+          <strong>
+            {{ cartService.totalItems() }}
+          </strong>
+
+        </div>
+
+        <div class="summary-row total">
+
+          <span>Total</span>
+
+          <strong>
+            {{ cartService.subtotal() | currency:'BRL' }}
+          </strong>
+
+        </div>
+
+        <button
+          class="clear"
+          (click)="clear()">
+
+          Limpar carrinho
+
+        </button>
+
+      </aside>
+
+    </div>
+
+  }
+
+</section>

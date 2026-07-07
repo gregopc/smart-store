@@ -5,52 +5,50 @@
     <div class="product-image">
       <img
         [src]="p.imageUrl"
-        [alt]="p.name"
-      >
+        [alt]="p.name">
     </div>
-
 
     <div class="product-details">
 
-      <h1>
-        {{ p.name }}
-      </h1>
+      <h1>{{ p.name }}</h1>
 
       <p class="category">
         Categoria: {{ p.category }}
       </p>
 
-
       <p class="description">
         {{ formatDescription(p.description) }}
       </p>
-
 
       <div class="price">
         {{ p.price | currency:'BRL' }}
       </div>
 
-
       <div class="stock">
         @if (p.stock > 0) {
           Em estoque: {{ p.stock }}
-        }
-        @else {
+        } @else {
           Produto indisponível
         }
       </div>
 
+      <button
+        class="add-cart-button"
+        (click)="addToCart()">
 
-      <button>
-        Adicionar ao carrinho
+        @if (added()) {
+          ✓ Adicionado ao carrinho
+        } @else {
+          Adicionar ao carrinho
+        }
+
       </button>
 
     </div>
 
   </section>
 
-}
-@else {
+} @else {
 
   <p class="loading">
     Carregando produto...

@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -10,15 +12,18 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent {
 
+  readonly cartService = inject(CartService);
+
   @Output() searchEvent = new EventEmitter<string>();
 
-  search(query: string) {
+  search(query: string): void {
     this.searchEvent.emit(query.trim());
   }
 
-  onInput(value: string) {
+  onInput(value: string): void {
     if (!value.trim()) {
       this.searchEvent.emit('');
     }
   }
+
 }

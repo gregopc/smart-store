@@ -48,7 +48,7 @@ header h1 {
 }
 
 .clickable {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .search-button {
@@ -83,4 +83,39 @@ header h1 {
        0.7px -0.7px 0 black,
       -0.7px  0.7px 0 black,
        0.7px  0.7px 0 black;
+}
+
+/* ---------- Carrinho ---------- */
+
+.cart-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+
+    min-width: 18px;
+    height: 18px;
+
+    padding: 0 4px;
+
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #d32f2f;
+    color: white;
+
+    font-size: 0.7rem;
+    font-weight: 600;
+
+    line-height: 1;
 }

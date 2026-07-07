@@ -1,0 +1,185 @@
+.cart-item {
+    display: flex;
+    gap: 24px;
+
+    padding: 20px;
+
+    background: #fff;
+    color: #000;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}
+
+.product-image {
+    width: 120px;
+    height: 120px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    flex-shrink: 0;
+}
+
+.product-info {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 12px;
+}
+
+.header h2 {
+    margin: 0;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    color: #000;
+}
+
+.category {
+    margin-top: 6px;
+
+    color: #000;
+
+    font-size: .95rem;
+}
+
+.price {
+    margin: 0;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    color: #000;
+}
+
+.footer {
+    margin-top: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quantity-control {
+    display: inline-flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    border: 1px solid #ddd;
+    border-radius: 999px;
+
+    background: #fff;
+}
+
+.quantity-button {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: #fff;
+
+    cursor: pointer;
+
+    transition: background .2s;
+}
+
+.quantity-button:hover {
+    background: #f3f3f3;
+}
+
+.quantity {
+    min-width: 42px;
+
+    text-align: center;
+
+    color: #000;
+
+    font-weight: 600;
+}
+
+.delete-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #666;
+
+    cursor: pointer;
+
+    transition: background .2s, color .2s;
+}
+
+.delete-button:hover {
+    background: #ffebee;
+    color: #d32f2f;
+}
+
+.subtotal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    color: #000;
+}
+
+.subtotal span {
+    color: #000;
+    font-size: .9rem;
+}
+
+.subtotal strong {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+
+    .cart-item {
+        flex-direction: column;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 220px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 20px;
+    }
+
+    .subtotal {
+        align-items: flex-start;
+    }
+
+}

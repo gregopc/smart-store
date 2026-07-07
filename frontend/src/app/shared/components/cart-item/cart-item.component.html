@@ -1,0 +1,85 @@
+<article class="cart-item">
+
+  <img
+    class="product-image"
+    [src]="item.product.imageUrl"
+    [alt]="item.product.name">
+
+  <div class="product-info">
+
+    <div class="header">
+
+      <div>
+
+        <h2>
+          {{ item.product.name }}
+        </h2>
+
+        <p class="category">
+          {{ item.product.category }}
+        </p>
+
+      </div>
+
+      <button
+        class="delete-button"
+        (click)="remove()"
+        aria-label="Remover produto">
+
+        <mat-icon>
+          delete_outline
+        </mat-icon>
+
+      </button>
+
+    </div>
+
+    <p class="price">
+      {{ item.product.price | currency:'BRL' }}
+    </p>
+
+    <div class="footer">
+
+      <div class="quantity-control">
+
+        <button
+          class="quantity-button"
+          (click)="decrease()">
+
+          <mat-icon>
+            remove
+          </mat-icon>
+
+        </button>
+
+        <span class="quantity">
+          {{ item.quantity }}
+        </span>
+
+        <button
+          class="quantity-button"
+          (click)="increase()">
+
+          <mat-icon>
+            add
+          </mat-icon>
+
+        </button>
+
+      </div>
+
+      <div class="subtotal">
+
+        <span>Subtotal</span>
+
+        <strong>
+          {{ subtotal | currency:'BRL' }}
+        </strong>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>

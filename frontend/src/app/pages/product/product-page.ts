@@ -1,9 +1,16 @@
-import { Component, computed, inject, resource } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  resource,
+  signal,
+} from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { CurrencyPipe } from '@angular/common';
 
 import { ProductService } from '../../core/services/product.service';
+import { CartService } from '../../core/services/cart.service';
 
 @Component({
   selector: 'app-product-page',
@@ -12,45 +19,88 @@ import { ProductService } from '../../core/services/product.service';
   styleUrl: './product-page.css',
 })
 export class ProductPageComponent {
-  private readonly productService: ProductService = inject(ProductService);
-  private readonly route: ActivatedRoute = inject(ActivatedRoute);
+
+  private readonly productService = inject(ProductService);
+  private readonly cartService = inject(CartService);
+  private readonly route = inject(ActivatedRoute);
+
+  readonly added = signal(false);
+
+  private feedbackTimeout?: ReturnType<typeof setTimeout>;
 
   private readonly paramMap = toSignal(this.route.paramMap);
 
-  private readonly productId = computed(() => this.paramMap()?.get('id'));
-
-  private readonly productResource = resource({
-     params: () => this.productId(),
-     loader: async ({ params: id }) => {
-       if (!id) {
-         this.goBack();
-         return null;
-       }
-
-       return await this.productService.getProduct(id);
-     },
-   });
-
-  readonly product = computed(() => this.productResource.hasValue()
-    ? this.productResource.value()
-    : undefined
+  private readonly productId = computed(() =>
+    this.paramMap()?.get('id')
   );
 
-  private goBack() {
+  private readonly productResource = resource({
+    params: () => this.productId(),
+
+    loader: async ({ params: id }) => {
+
+      if (!id) {
+        this.goBack();
+        return null;
+      }
+
+      return await this.productService.getProduct(id);
+
+    },
+  });
+
+  readonly product = computed(() =>
+    this.productResource.hasValue()
+      ? this.productResource.value()
+      : undefined
+  );
+
+  addToCart(): void {
+
+    const product = this.product();
+
+    if (!product) {
+      return;
+    }
+
+    this.cartService.add(product);
+
+    this.showAddedFeedback();
+
+  }
+
+  private showAddedFeedback(): void {
+
+    this.added.set(true);
+
+    clearTimeout(this.feedbackTimeout);
+
+    this.feedbackTimeout = setTimeout(() => {
+      this.added.set(false);
+    }, 2000);
+
+  }
+
+  private goBack(): void {
     history.back();
   }
 
   formatDescription(text: string): string {
+
     if (!text) {
       return '';
     }
 
-    let result = text.charAt(0).toUpperCase() + text.slice(1);
+    let result =
+      text.charAt(0).toUpperCase() +
+      text.slice(1);
 
     if (!/[.!?]$/.test(result.trim())) {
       result += '.';
     }
 
     return result;
+
   }
+
 }
