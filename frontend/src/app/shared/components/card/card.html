@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card" (click)="openProduct()">
   <img [src]="imageUrl" [alt]="alt" class="card-image">
   <div class="card-content">
     <h3>{{ title }}</h3>
     <p>{{ description }}</p>
-    <p class="price">R$ {{ price }}</p>
+    <p class="price">{{ price | currency:'BRL' }}</p>
   </div>
 </div>

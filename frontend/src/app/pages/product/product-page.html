@@ -1,11 +1,59 @@
-<!-- TODO: Implementar página de produto -->
 @if (product(); as p) {
-  <div>
-    <ul>
-      {{ p.name }}
-    </ul>
-  </div>
-} @else {
-<!-- TODO: Adicionar página de loading ou skeleton -->
-  <p>Loading...</p>
+
+  <section class="product-page">
+
+    <div class="product-image">
+      <img
+        [src]="p.imageUrl"
+        [alt]="p.name"
+      >
+    </div>
+
+
+    <div class="product-details">
+
+      <h1>
+        {{ p.name }}
+      </h1>
+
+      <p class="category">
+        Categoria: {{ p.category }}
+      </p>
+
+
+      <p class="description">
+        {{ formatDescription(p.description) }}
+      </p>
+
+
+      <div class="price">
+        {{ p.price | currency:'BRL' }}
+      </div>
+
+
+      <div class="stock">
+        @if (p.stock > 0) {
+          Em estoque: {{ p.stock }}
+        }
+        @else {
+          Produto indisponível
+        }
+      </div>
+
+
+      <button>
+        Adicionar ao carrinho
+      </button>
+
+    </div>
+
+  </section>
+
+}
+@else {
+
+  <p class="loading">
+    Carregando produto...
+  </p>
+
 }

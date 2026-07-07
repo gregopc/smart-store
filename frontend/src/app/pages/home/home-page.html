@@ -1,9 +1,10 @@
 <div class="cards">
   @for (product of products(); track $index) {
     <app-card
+      [id]="product.id"
       [title]="product.name"
       [description]="product.description"
-      [price]="product.price.toString()"
+      [price]="product.price"
       [imageUrl]="product.imageUrl"
     ></app-card>
   }

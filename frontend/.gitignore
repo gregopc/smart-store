@@ -39,6 +39,15 @@ testem.log
 /typings
 __screenshots__/
 
+# Environment
+**/environments/environment.ts
+**/environments/environment.*.ts
+!**/environments/environment.example.ts
+
 # System files
 .DS_Store
 Thumbs.db
+
+# Local development
+/scripts/
+/snapshot/

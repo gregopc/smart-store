@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: 'http://localhost:8080',
+  apiUrl: 'https://reimagined-fishstick-9v7566x6vh4xv-8080.app.github.dev',
 };
