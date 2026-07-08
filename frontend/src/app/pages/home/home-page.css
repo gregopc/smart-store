@@ -1,6 +1,294 @@
-.cards {
+.home-layout {
+
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+
+    grid-template-columns: 260px 1fr;
+
+    gap: 30px;
+
+    padding: 30px 40px;
+
+}
+
+
+/* -------------------------
+   Filtros
+------------------------- */
+
+.filters {
+
+    position: sticky;
+
+    top: 20px;
+
+    height: fit-content;
+
+}
+
+
+.filter-card {
+
+    width: 100%;
+
+    max-width: 260px;
+
+    overflow: hidden;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+
+
+.filter-header h3 {
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+}
+
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
     gap: 6px;
-    padding: 20px 150px;
+
+}
+
+
+
+.field label {
+
+    font-size: 13px;
+
+    color: var(--text-muted);
+
+}
+
+
+
+.field input {
+
+    width: 100%;
+
+    height: 40px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+    background: var(--surface-2);
+
+    color: var(--text);
+
+    padding: 0 12px;
+
+    font-size: 13px;
+
+}
+
+
+
+.field input::placeholder {
+
+    color: var(--text-muted);
+
+}
+
+
+
+.price-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+
+
+.checkbox {
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+}
+
+
+
+.checkbox input {
+
+    width: 15px;
+
+    height: 15px;
+
+}
+
+
+
+.filter-button {
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--accent);
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: transform .15s ease, opacity .15s ease;
+
+}
+
+
+
+.filter-button:hover {
+
+    transform: translateY(-1px);
+
+    opacity: .9;
+
+}
+
+
+
+/* -------------------------
+   Produtos
+------------------------- */
+
+.catalog {
+
+    min-width: 0;
+
+}
+
+
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(220px, 1fr)
+    );
+
+    gap: 20px;
+
+}
+
+.empty-products {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 300px;
+
+    color: var(--text-muted);
+
+    text-align: center;
+
+    gap: 8px;
+
+}
+
+
+.empty-products h3 {
+
+    color: var(--text);
+
+    font-size: 18px;
+
+}
+
+.sentinel {
+
+    height: 1px;
+
+}
+
+
+
+.status-message {
+
+    text-align: center;
+
+    margin: 20px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+}
+
+
+
+/* -------------------------
+   Responsivo
+------------------------- */
+
+@media (max-width: 900px) {
+
+
+    .home-layout {
+
+        grid-template-columns: 1fr;
+
+        padding: 20px;
+
+    }
+
+
+    .filters {
+
+        position: static;
+
+    }
+
+
 }
